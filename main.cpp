@@ -31,14 +31,14 @@ int main()
         // Draw a square
         float sideLength = 500.f;
         sf::RectangleShape square(sf::Vector2f(sideLength, sideLength));
-        square.setFillColor(sf::Color::Red);
+        square.setFillColor(sf::Color(132, 8, 8, 255));
         square.setPosition(windowCenterX - (sideLength / 2.f), windowCenterY - (sideLength / 2.f));
         window.draw(square);
         
         // Draw a circle
         float radius = 200.f;
         sf::CircleShape circle(radius);
-        circle.setFillColor(sf::Color::Green);
+        circle.setFillColor(sf::Color(31, 188, 14, 255));
         circle.setPosition(windowCenterX - radius, windowCenterY - radius);
         window.draw(circle);
 
@@ -51,7 +51,7 @@ int main()
         triangle.setPoint(0, sf::Vector2f(windowCenterX, windowCenterY - (height / 2.f))); // Top point
         triangle.setPoint(1, sf::Vector2f(windowCenterX - halfBase, windowCenterY + (height / 2.f))); // Bottom-left point
         triangle.setPoint(2, sf::Vector2f(windowCenterX + halfBase, windowCenterY + (height / 2.f))); // Bottom-right point
-        triangle.setFillColor(sf::Color::Blue);
+        triangle.setFillColor(sf::Color(8, 8, 143, 255));
         window.draw(triangle);
 
         sf::Texture logo_texture;
