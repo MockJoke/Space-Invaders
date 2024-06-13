@@ -43,8 +43,8 @@ int main()
         window.draw(circle);
 
         // Draw a triangle using sf::ConvexShape
-        float halfBase = 90.f; // Half the length of the base of the triangle
-        float height = 120.f; // Height of the triangle
+        float halfBase = 120.f; // Half the length of the base of the triangle
+        float height = 160.f; // Height of the triangle
         sf::ConvexShape triangle;
         triangle.setPointCount(3); // A triangle has 3 points
         // Set the positions of the points
@@ -53,6 +53,28 @@ int main()
         triangle.setPoint(2, sf::Vector2f(windowCenterX + halfBase, windowCenterY + (height / 2.f))); // Bottom-right point
         triangle.setFillColor(sf::Color::Blue);
         window.draw(triangle);
+
+        sf::Texture logo_texture;
+        logo_texture.loadFromFile("assets/textures/logo.png");
+
+        sf::Sprite logo_sprite;
+        logo_sprite.setTexture(logo_texture);
+
+        float scale = 0.5f;
+        float spriteWidth = 157.f;
+        float spriteHeight = 119.f;
+        logo_sprite.setPosition(windowCenterX - spriteWidth*scale/2.f, windowCenterY - spriteHeight*scale/2.f);
+        logo_sprite.setRotation(0);
+        logo_sprite.setScale(scale, scale);
+
+        sf::Font font;
+        font.loadFromFile("assets/fonts/DS_DigiB.ttf");
+        sf::Text title_text("MATRIX", font, 50);
+        title_text.setPosition(windowCenterX - 65, 0);
+        title_text.setFillColor(sf::Color::White);
+        window.draw(title_text);
+
+        window.draw(logo_sprite);
         
         // Display whatever you draw
         window.display();
