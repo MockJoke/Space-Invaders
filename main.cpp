@@ -54,12 +54,11 @@ int main()
         triangle.setFillColor(sf::Color(8, 8, 143, 255));
         window.draw(triangle);
 
+        // Draw sprite using texture asset
         sf::Texture logo_texture;
         logo_texture.loadFromFile("assets/textures/logo.png");
-
         sf::Sprite logo_sprite;
         logo_sprite.setTexture(logo_texture);
-
         float scale = 0.5f;
         float spriteWidth = 157.f;
         float spriteHeight = 119.f;
@@ -67,6 +66,7 @@ int main()
         logo_sprite.setRotation(0);
         logo_sprite.setScale(scale, scale);
 
+        // Draw text using font asset
         sf::Font font;
         font.loadFromFile("assets/fonts/DS_DigiB.ttf");
         sf::Text title_text("MATRIX", font, 50);
