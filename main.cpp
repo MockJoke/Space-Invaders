@@ -23,8 +23,37 @@ int main()
         }
 
         // Clear the window
-        window.clear(sf::Color::Green);
+        window.clear(sf::Color::Black);
 
+        float windowCenterX = static_cast<float>(window.getSize().x) / 2.f;
+        float windowCenterY = static_cast<float>(window.getSize().y) / 2.f;
+        
+        // Draw a square
+        float sideLength = 500.f;
+        sf::RectangleShape square(sf::Vector2f(sideLength, sideLength));
+        square.setFillColor(sf::Color::Red);
+        square.setPosition(windowCenterX - (sideLength / 2.f), windowCenterY - (sideLength / 2.f));
+        window.draw(square);
+        
+        // Draw a circle
+        float radius = 200.f;
+        sf::CircleShape circle(radius);
+        circle.setFillColor(sf::Color::Green);
+        circle.setPosition(windowCenterX - radius, windowCenterY - radius);
+        window.draw(circle);
+
+        // Draw a triangle using sf::ConvexShape
+        float halfBase = 90.f; // Half the length of the base of the triangle
+        float height = 120.f; // Height of the triangle
+        sf::ConvexShape triangle;
+        triangle.setPointCount(3); // A triangle has 3 points
+        // Set the positions of the points
+        triangle.setPoint(0, sf::Vector2f(windowCenterX, windowCenterY - (height / 2.f))); // Top point
+        triangle.setPoint(1, sf::Vector2f(windowCenterX - halfBase, windowCenterY + (height / 2.f))); // Bottom-left point
+        triangle.setPoint(2, sf::Vector2f(windowCenterX + halfBase, windowCenterY + (height / 2.f))); // Bottom-right point
+        triangle.setFillColor(sf::Color::Blue);
+        window.draw(triangle);
+        
         // Display whatever you draw
         window.display();
     }
