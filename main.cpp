@@ -65,6 +65,7 @@ int main()
         logo_sprite.setPosition(windowCenterX - spriteWidth*scale/2.f, windowCenterY - spriteHeight*scale/2.f);
         logo_sprite.setRotation(0);
         logo_sprite.setScale(scale, scale);
+        window.draw(logo_sprite);
 
         // Draw text using font asset
         sf::Font font;
@@ -73,8 +74,6 @@ int main()
         title_text.setPosition(windowCenterX - 65, 0);
         title_text.setFillColor(sf::Color::White);
         window.draw(title_text);
-
-        window.draw(logo_sprite);
         
         // Display whatever you draw
         window.display();
