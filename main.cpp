@@ -57,6 +57,16 @@ int main()
                 window.close();
         }
 
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        {
+            player.move();
+        }
+        
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        {
+            player.move();    
+        }
+        
         // Clear the window
         window.clear(sf::Color::Black);
         
