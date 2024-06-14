@@ -1,5 +1,40 @@
 #include <SFML/Graphics.hpp>
 
+class Player
+{
+private:
+    int health = 3;
+    sf::Vector2f position = sf::Vector2f(200.0f, 100.0f);
+    int movement_speed = 5;
+    int player_score = 0;
+
+public:
+    sf::Texture player_texture;
+    sf::Sprite player_sprite;
+
+    int getScore() const
+    {
+        return player_score;
+    }
+
+    void setScore(const int s)
+    {
+        player_score = s;
+    }
+
+    void takeDamage()
+    {
+    }
+
+    void move()
+    {
+    }
+
+    void shootBullets()
+    {
+    }
+};
+
 int main()
 {
     // Define the video mode (dimensions)
@@ -24,57 +59,6 @@ int main()
 
         // Clear the window
         window.clear(sf::Color::Black);
-
-        float windowCenterX = static_cast<float>(window.getSize().x) / 2.f;
-        float windowCenterY = static_cast<float>(window.getSize().y) / 2.f;
-        
-        // Draw a square
-        float sideLength = 500.f;
-        sf::RectangleShape square(sf::Vector2f(sideLength, sideLength));
-        square.setFillColor(sf::Color(132, 8, 8, 255));
-        square.setPosition(windowCenterX - (sideLength / 2.f), windowCenterY - (sideLength / 2.f));
-        window.draw(square);
-        
-        // Draw a circle
-        float radius = 200.f;
-        sf::CircleShape circle(radius);
-        circle.setFillColor(sf::Color(31, 188, 14, 255));
-        circle.setPosition(windowCenterX - radius, windowCenterY - radius);
-        window.draw(circle);
-
-        // Draw a triangle using sf::ConvexShape
-        float halfBase = 120.f; // Half the length of the base of the triangle
-        float height = 160.f; // Height of the triangle
-        sf::ConvexShape triangle;
-        triangle.setPointCount(3); // A triangle has 3 points
-        // Set the positions of the points
-        triangle.setPoint(0, sf::Vector2f(windowCenterX, windowCenterY - (height / 2.f))); // Top point
-        triangle.setPoint(1, sf::Vector2f(windowCenterX - halfBase, windowCenterY + (height / 2.f))); // Bottom-left point
-        triangle.setPoint(2, sf::Vector2f(windowCenterX + halfBase, windowCenterY + (height / 2.f))); // Bottom-right point
-        triangle.setFillColor(sf::Color(8, 8, 143, 255));
-        window.draw(triangle);
-
-        // Draw sprite using texture asset
-        sf::Texture logo_texture;
-        logo_texture.loadFromFile("assets/textures/logo.png");
-        sf::Sprite logo_sprite;
-        logo_sprite.setTexture(logo_texture);
-        float scale = 0.5f;
-        float spriteWidth = 157.f;
-        float spriteHeight = 119.f;
-        logo_sprite.setPosition(windowCenterX - spriteWidth*scale/2.f, windowCenterY - spriteHeight*scale/2.f);
-        logo_sprite.setRotation(0);
-        logo_sprite.setScale(scale, scale);
-
-        // Draw text using font asset
-        sf::Font font;
-        font.loadFromFile("assets/fonts/DS_DigiB.ttf");
-        sf::Text title_text("MATRIX", font, 50);
-        title_text.setPosition(windowCenterX - 65, 0);
-        title_text.setFillColor(sf::Color::White);
-        window.draw(title_text);
-
-        window.draw(logo_sprite);
         
         // Display whatever you draw
         window.display();
