@@ -27,16 +27,16 @@ void GameService::ignite()
 
 void GameService::update()
 {
-    // Updates the game logic and game state.
+    // Updates the game logic and game state
 }
 
 void GameService::render()
 {
-    // Renders each frame of the game.
+    // Renders each frame of the game
 }
 
 bool GameService::isRunning()
 {
-    // Checks if the game is currently running.
+    // Checks if the game is currently running
     return false; //default return
 }
