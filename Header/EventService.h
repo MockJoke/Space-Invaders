@@ -8,9 +8,9 @@ private:
     sf::Event game_event;   // event var
     sf::RenderWindow* game_window;  // ptr to our game window
 
-    bool isGameWindowOpen(); 
-    bool gameWindowWasClosed(); // for the condition we already had - the title bar cross
-    bool hasQuitGame(); // for our new 'ESC' condition
+    bool isGameWindowOpen() const; 
+    bool gameWindowWasClosed() const; // for the condition we already had - the title bar cross
+    bool hasQuitGame() const; // for our new 'ESC' condition
 
 public:
     EventService();
@@ -19,6 +19,6 @@ public:
     void initialize();
     void update();
     void processEvents();   // while window is open we will check for events
-    bool pressedEscapeKey();
-    bool isKeyboardEvent();
+    bool pressedEscapeKey() const;
+    bool isKeyboardEvent() const;
 };
