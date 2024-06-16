@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\EventService.cpp" />
     <ClCompile Include="Source\GameService.cpp" />
     <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\main.cpp">
@@ -212,6 +213,7 @@
     <ClCompile Include="Source\ServiceLocator.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\EventService.h" />
     <ClInclude Include="Header\GameService.h" />
     <ClInclude Include="Header\GraphicService.h" />
     <ClInclude Include="Header\ServiceLocator.h" />

@@ -3,11 +3,14 @@
 // Constructor: Initializes the graphic_service pointer to null and creates services.
 ServiceLocator::ServiceLocator()
 {
-    graphic_service = nullptr;  // Initialize graphic_service to null
+    // Initialize service to null
+    graphic_service = nullptr;  
+    event_service = nullptr;
+    
     createServices();   // Call createServices to instantiate services
 }
 
-// Destructor: Cleans up resources by clearing all services.
+// Destructor: Cleans up resources by clearing all services
 ServiceLocator::~ServiceLocator()
 {
     clearAllServices();     // Call clearAllServices to delete any allocated services	
@@ -15,13 +18,20 @@ ServiceLocator::~ServiceLocator()
 
 void ServiceLocator::createServices()
 {
-    graphic_service = new GraphicService(); // Dynamically create a GraphicService instance
+    // Dynamically create a service instance
+    graphic_service = new GraphicService(); 
+    event_service = new EventService();
 }
 
 void ServiceLocator::clearAllServices()
 {
-    delete(graphic_service);    // Delete the graphic_service instance
-    graphic_service = nullptr;  // Reset pointer to null to avoid dangling pointer
+    // Delete the service instance
+    delete(graphic_service);
+    delete(event_service);
+    
+    // Reset pointer to null to avoid dangling pointer
+    graphic_service = nullptr;
+    event_service = nullptr;
 }
 
 ServiceLocator* ServiceLocator::getInstance()
@@ -33,17 +43,22 @@ ServiceLocator* ServiceLocator::getInstance()
 void ServiceLocator::initialize()
 {
     graphic_service->initialize();
+    event_service->initialize();
 }
 
 void ServiceLocator::update()
 {
-    // Updates all services.
+    // Updates all services
+    graphic_service->update();
+    event_service->update();
 }
 
 void ServiceLocator::render()
 {
-    // Renders using the services.
+    // Renders using the services
+    graphic_service->render();
 }
 
-// Returns a pointer to the currently set graphic service.
+// Returns a pointer to the currently set graphic service
 GraphicService* ServiceLocator::getGraphicService() const { return graphic_service; }
+EventService* ServiceLocator::getEventService() const { return event_service; }

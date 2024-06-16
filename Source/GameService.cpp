@@ -1,5 +1,6 @@
 ﻿#include "../Header/GameService.h"
 #include "../Header/GraphicService.h"
+#include "../Header/ServiceLocator.h"
 
 // Constructor: Initializes pointers to null
 GameService::GameService()
@@ -40,6 +41,10 @@ void GameService::destroy()
 
 void GameService::update()
 {
+    // Process events
+    service_locator->getEventService()->processEvents();
+
+    // Update game logic
     service_locator->update();  // Call update on the service locator which then updates all its managed services
 }
 
