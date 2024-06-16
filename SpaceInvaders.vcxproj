@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\GameService.cpp" />
+    <ClCompile Include="Source\GraphicService.cpp" />
     <ClCompile Include="Source\main.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -212,6 +213,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\GameService.h" />
+    <ClInclude Include="Header\GraphicService.h" />
     <ClInclude Include="Header\ServiceLocator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

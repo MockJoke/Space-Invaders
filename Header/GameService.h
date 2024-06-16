@@ -1,9 +1,15 @@
 ﻿#pragma once
+#include <SFML/Graphics.hpp>
+#include "../Header/ServiceLocator.h"
 
 class GameService
 {
 private:
-    void initialize();		// Handles game initialization
+    ServiceLocator* service_locator;
+    sf::RenderWindow* game_window;
+    
+    void initialize();
+    void initializeVariables();// Handles game initialization
     void destroy();			// Handles cleanup tasks
 
 public:
@@ -13,5 +19,5 @@ public:
     void ignite();			// Initiates the game
     void update();			// Updates the game logic and game state
     void render();			// Renders each frame of the game
-    bool isRunning();		// Checks if the game is currently running
+    bool isRunning() const;		// Checks if the game is currently running
 };
