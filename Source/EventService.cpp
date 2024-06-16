@@ -39,11 +39,15 @@ bool EventService::hasQuitGame() const
     return (isKeyboardEvent() && pressedEscapeKey());
 }
 
+bool EventService::isGameWindowOpen() const { return game_window != nullptr; }
+
+bool EventService::gameWindowWasClosed() const { return game_event.type == sf::Event::Closed; }
+
 // Checks for if a keyboard key has been pressed
 bool EventService::isKeyboardEvent() const { return game_event.type == sf::Event::KeyPressed; }
 
 bool EventService::pressedEscapeKey() const { return game_event.key.code == sf::Keyboard::Escape; }
 
-bool EventService::isGameWindowOpen() const { return game_window != nullptr; }
+bool EventService::pressedLeftKey() const { return game_event.key.code == sf::Keyboard::Left; }
 
-bool EventService::gameWindowWasClosed() const { return game_event.type == sf::Event::Closed; }
+bool EventService::pressedRightKey() const { return game_event.key.code == sf::Keyboard::Right; }

@@ -21,4 +21,6 @@ public:
     void processEvents();   // while window is open we will check for events
     bool pressedEscapeKey() const;
     bool isKeyboardEvent() const;
+    bool pressedLeftKey() const;
+    bool pressedRightKey() const;
 };

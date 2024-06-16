@@ -6,6 +6,7 @@ ServiceLocator::ServiceLocator()
     // Initialize service to null
     graphic_service = nullptr;  
     event_service = nullptr;
+    player_service = nullptr;
     
     createServices();   // Call createServices to instantiate services
 }
@@ -21,6 +22,7 @@ void ServiceLocator::createServices()
     // Dynamically create a service instance
     graphic_service = new GraphicService(); 
     event_service = new EventService();
+    player_service = new PlayerService();
 }
 
 void ServiceLocator::clearAllServices()
@@ -28,10 +30,12 @@ void ServiceLocator::clearAllServices()
     // Delete the service instance
     delete(graphic_service);
     delete(event_service);
+    delete(player_service);
     
     // Reset pointer to null to avoid dangling pointer
     graphic_service = nullptr;
     event_service = nullptr;
+    player_service = nullptr;
 }
 
 ServiceLocator* ServiceLocator::getInstance()
@@ -44,6 +48,7 @@ void ServiceLocator::initialize()
 {
     graphic_service->initialize();
     event_service->initialize();
+    player_service->initialize();
 }
 
 void ServiceLocator::update()
@@ -51,14 +56,17 @@ void ServiceLocator::update()
     // Updates all services
     graphic_service->update();
     event_service->update();
+    player_service->update();
 }
 
 void ServiceLocator::render()
 {
     // Renders using the services
     graphic_service->render();
+    player_service->render();
 }
 
 // Returns a pointer to the currently set graphic service
 GraphicService* ServiceLocator::getGraphicService() const { return graphic_service; }
 EventService* ServiceLocator::getEventService() const { return event_service; }
+PlayerService* ServiceLocator::getPlayerService() const { return player_service; }
