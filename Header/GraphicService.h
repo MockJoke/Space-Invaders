@@ -14,6 +14,8 @@ private:
     sf::VideoMode* video_mode;      // ptr to video mode
     sf::RenderWindow* game_window;      // ptr to a RenderWindow
 
+    const int frame_rate = 60 ;
+
     void setVideoMode();        // Method for setting our video mode
     void onDestroy();       // method to run when window is deleted
 
