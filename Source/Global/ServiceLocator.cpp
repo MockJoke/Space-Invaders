@@ -1,4 +1,4 @@
-﻿#include "../Header/ServiceLocator.h"
+﻿#include "../../Header/Global/ServiceLocator.h"
 
 // Constructor: Initializes the graphic_service pointer to null and creates services.
 ServiceLocator::ServiceLocator()

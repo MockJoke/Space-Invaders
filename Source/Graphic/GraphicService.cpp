@@ -1,4 +1,4 @@
-﻿#include "../Header/GraphicService.h"
+﻿#include "../../Header/Graphic/GraphicService.h"
 
 // Constructor: Initializes game window and video mode pointers to null
 GraphicService::GraphicService()

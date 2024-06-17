@@ -1,8 +1,8 @@
 ﻿#pragma once
-#include "../Header/GraphicService.h"
-#include "../Header/EventService.h"
-#include "../Header/PlayerService.h"
-#include "../Header/TimeService.h"
+#include "../Graphic/GraphicService.h"
+#include "../Event/EventService.h"
+#include "../Player/PlayerService.h"
+#include "../Time/TimeService.h"
 
 /* Class Summary
     This class manages access to various services in the application
