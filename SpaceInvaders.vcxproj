@@ -222,7 +222,9 @@
     <ClInclude Include="Header\GameService.h" />
     <ClInclude Include="Header\GraphicService.h" />
     <ClInclude Include="Header\PlayerService.h" />
+    <ClInclude Include="Header\Player\PlayerController.h" />
     <ClInclude Include="Header\Player\PlayerModel.h" />
+    <ClInclude Include="Header\Player\PlayerView.h" />
     <ClInclude Include="Header\ServiceLocator.h" />
     <ClInclude Include="Header\TimeService.h" />
   </ItemGroup>
