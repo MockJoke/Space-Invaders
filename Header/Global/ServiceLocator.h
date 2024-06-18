@@ -3,6 +3,7 @@
 #include "../Event/EventService.h"
 #include "../Player/PlayerService.h"
 #include "../Time/TimeService.h"
+#include "../UI/UIService.h"
 
 namespace Global
 {
@@ -16,6 +17,7 @@ namespace Global
         Time::TimeService* time_service;
         Event::EventService* event_service;
         Player::PlayerService* player_service;
+        UI::UIService* ui_service;
 
         // Private Constructor and Destructor:
     
@@ -42,5 +44,6 @@ namespace Global
         Time::TimeService* getTimeService() const;
         Event::EventService* getEventService() const;
         Player::PlayerService* getPlayerService() const;
+        UI::UIService* getUIService() const;
     };
 }
