@@ -4,7 +4,7 @@
 
 namespace Main
 {
-    GameState GameService::current_state = GameState::BOOT;
+    GameState GameService::current_state = GameState::MAIN_MENU;
     
     // Constructor: Initializes pointers to null
     GameService::GameService()

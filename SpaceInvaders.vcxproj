@@ -660,6 +660,7 @@
       <AdditionalIncludeDirectories>F:\MyGameProjects\SpaceInvaders\sfml\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Source\UI\Button.cpp" />
     <ClCompile Include="Source\UI\MainMenu\MainMenuController.cpp" />
     <ClCompile Include="Source\UI\UIService.cpp" />
   </ItemGroup>
@@ -673,6 +674,7 @@
     <ClInclude Include="Header\Player\PlayerService.h" />
     <ClInclude Include="Header\Player\PlayerView.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
+    <ClInclude Include="Header\UI\Button.h" />
     <ClInclude Include="Header\UI\MainMenu\MainMenuController.h" />
     <ClInclude Include="Header\UI\UIService.h" />
   </ItemGroup>

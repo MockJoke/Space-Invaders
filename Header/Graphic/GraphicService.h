@@ -9,8 +9,8 @@ namespace Graphic
     private:
         const std::string game_window_title = "Space Invader"; 
 
-        const int game_window_width = 1280;
-        const int game_window_height = 720;
+        const int game_window_width = 1920;
+        const int game_window_height = 1080;
         const sf::Color window_color = sf::Color::Black;
 
         sf::VideoMode* video_mode;      // ptr to video mode
