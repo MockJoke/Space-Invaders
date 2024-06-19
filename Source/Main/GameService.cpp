@@ -4,11 +4,13 @@
 
 namespace Main
 {
+    GameState GameService::current_state = GameState::BOOT;
+    
     // Constructor: Initializes pointers to null
     GameService::GameService()
     {
         service_locator = nullptr;  // Set service locator to null
-        game_window = nullptr;  // Set game window to null
+        // game_window = nullptr;  // Set game window to null
     }
 
     // Destructor: Calls the destroy function to clean up resources
