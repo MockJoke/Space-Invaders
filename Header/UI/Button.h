@@ -13,7 +13,6 @@ namespace UI
         sf::Color highlight_color;
 
     public:
-        //constructor and destructors
         Button();
         ~Button();
 
@@ -21,9 +20,9 @@ namespace UI
         void SetPosition(float xPos, float yPos);
 	
         // Mouse input
-        void CheckForMouseHover(sf::Vector2i mousePos);
-        bool IsPressed(sf::Vector2i mousePos);
-	
+        bool IsMousePointerOverlapping(sf::Vector2f mousePos) const;
+        void CheckForMouseHover(sf::Vector2f mousePos);
+        
         sf::Vector2f getBounds() const;
         sf::Vector2f getPosition() const;
 

@@ -4,7 +4,7 @@
 
 namespace Main
 {
-    GameState GameService::current_state = GameState::MAIN_MENU;
+    GameState GameService::current_state = GameState::BOOT;
     
     // Constructor: Initializes pointers to null
     GameService::GameService()
@@ -31,6 +31,7 @@ namespace Main
     {
         service_locator->initialize();
         initializeVariables();
+        showMainMenu();
     }
 
     void GameService::initializeVariables()
@@ -59,6 +60,11 @@ namespace Main
         game_window->clear(service_locator->getGraphicService()->getWindowColor());
         service_locator->render();  // Render the current frame using the service locator
         game_window->display();     // Display the rendered frame on the game window
+    }
+
+    void GameService::showMainMenu()
+    {
+        setGameState(GameState::MAIN_MENU);
     }
 
     // Checks if the game is still running by querying the graphic service's window open status

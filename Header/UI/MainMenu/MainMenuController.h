@@ -21,7 +21,7 @@ namespace UI
 
             sf::Font button_font;
             Button play_btn;
-            Button instructions_btn;
+            Button help_btn;
             Button quit_btn;
 
             // Since this is a single image, we can check if it loaded or not during initialization
@@ -32,7 +32,9 @@ namespace UI
             
             void initializeButtons();
             void positionButtons();
-            
+
+            void processButtonInteractions();
+            bool clickedButton(const Button*, sf::Vector2f);
         public:
             MainMenuUIController();
 

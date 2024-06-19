@@ -13,7 +13,7 @@ namespace UI
     void Button::Create(const std::string& str, const sf::Font& font, sf::Color color, float size)
     {
         default_color = color;
-        highlight_color = sf::Color(225, 225, 225, 225);
+        highlight_color = sf::Color(128, 128, 128, 225);
 
         text.setFont(font);
         text.setString(str);
@@ -26,10 +26,19 @@ namespace UI
         text.setPosition(xPos,yPos);
     }
 
-    void Button::CheckForMouseHover(sf::Vector2i mousePos)
+    bool Button::IsMousePointerOverlapping(sf::Vector2f mousePos) const
+    {
+        if (text.getGlobalBounds().contains(mousePos.x, mousePos.y))
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    void Button::CheckForMouseHover(sf::Vector2f mousePos)
     {
         // Is mouse over button then activate button hover effect
-        if (text.getGlobalBounds().contains(mousePos.x, mousePos.y))
+        if (IsMousePointerOverlapping(mousePos))
         {
             text.setFillColor(highlight_color);
         }
@@ -38,20 +47,10 @@ namespace UI
             text.setFillColor(default_color);
         }
     }
-
-    bool Button::IsPressed(sf::Vector2i mousePos)
-    {
-        if (text.getGlobalBounds().contains(mousePos.x, mousePos.y))
-        {
-            text.setFillColor(default_color);
-            return true;
-        }
-        return false;
-    }
-
+    
     sf::Vector2f Button::getBounds() const
     {
-        return sf::Vector2f(text.getGlobalBounds().width, text.getGlobalBounds().height);
+        return {text.getGlobalBounds().width, text.getGlobalBounds().height};
     }
 
     sf::Vector2f Button::getPosition() const
