@@ -2,6 +2,7 @@
 #include "../Enemy/EnemyService.h"
 #include "../Graphic/GraphicService.h"
 #include "../Event/EventService.h"
+#include "../Gameplay/GameplayService.h"
 #include "../Player/PlayerService.h"
 #include "../Time/TimeService.h"
 #include "../UI/UIService.h"
@@ -17,8 +18,9 @@ namespace Global
         Graphic::GraphicService* graphic_service;
         Time::TimeService* time_service;
         Event::EventService* event_service;
-        Player::PlayerService* player_service;
         UI::UIService* ui_service;
+        Gameplay::GameplayService* gameplay_service;
+        Player::PlayerService* player_service;
         Enemy::EnemyService* enemy_service;
 
         // Private Constructor and Destructor:
@@ -45,8 +47,9 @@ namespace Global
         Graphic::GraphicService* getGraphicService() const;
         Time::TimeService* getTimeService() const;
         Event::EventService* getEventService() const;
-        Player::PlayerService* getPlayerService() const;
         UI::UIService* getUIService() const;
+        Gameplay::GameplayService* getGameplayService() const;
+        Player::PlayerService* getPlayerService() const;
         Enemy::EnemyService* getEnemyService() const;
     };
 }

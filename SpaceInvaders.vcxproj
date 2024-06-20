@@ -211,6 +211,9 @@
       <AdditionalIncludeDirectories>F:\MyGameProjects\SpaceInvaders\sfml\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Source\Gameplay\GameplayController.cpp" />
+    <ClCompile Include="Source\Gameplay\GameplayService.cpp" />
+    <ClCompile Include="Source\Gameplay\GameplayView.cpp" />
     <ClCompile Include="Source\Global\ServiceLocator.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -674,6 +677,9 @@
     <ClInclude Include="Header\Enemy\EnemyService.h" />
     <ClInclude Include="Header\Enemy\EnemyView.h" />
     <ClInclude Include="Header\Event\EventService.h" />
+    <ClInclude Include="Header\Gameplay\GameplayController.h" />
+    <ClInclude Include="Header\Gameplay\GameplayService.h" />
+    <ClInclude Include="Header\Gameplay\GameplayView.h" />
     <ClInclude Include="Header\Global\ServiceLocator.h" />
     <ClInclude Include="Header\Graphic\GraphicService.h" />
     <ClInclude Include="Header\Main\GameService.h" />
