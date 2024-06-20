@@ -8,7 +8,7 @@ namespace Player
     class PlayerView
     {
     private:
-        const sf::String player_texture_path = "assets/textures/player_ship.png";
+        const sf::String player_texture_path = "Assets/Textures/player_ship.png";
         const float player_sprite_width = 80.f;
         const float player_sprite_height = 40.0f;
 

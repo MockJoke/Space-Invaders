@@ -9,7 +9,7 @@ namespace UI
         class MainMenuUIController
         {
         private:
-            const sf::String background_texture_path = "assets/textures/game_bg.png";
+            const sf::String background_texture_path = "Assets/Textures/game_bg.png";
 
             sf::RenderWindow* game_window;
 

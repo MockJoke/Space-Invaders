@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "../Enemy/EnemyService.h"
 #include "../Graphic/GraphicService.h"
 #include "../Event/EventService.h"
 #include "../Player/PlayerService.h"
@@ -18,6 +19,7 @@ namespace Global
         Event::EventService* event_service;
         Player::PlayerService* player_service;
         UI::UIService* ui_service;
+        Enemy::EnemyService* enemy_service;
 
         // Private Constructor and Destructor:
     
@@ -45,5 +47,6 @@ namespace Global
         Event::EventService* getEventService() const;
         Player::PlayerService* getPlayerService() const;
         UI::UIService* getUIService() const;
+        Enemy::EnemyService* getEnemyService() const;
     };
 }

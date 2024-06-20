@@ -41,7 +41,7 @@ namespace UI
 
         void MainMenuUIController::initializeTitle()
         {
-            title_font.loadFromFile("assets/fonts/ARCADE_I.ttf");
+            title_font.loadFromFile("Assets/Fonts/ARCADE_I.ttf");
             title_text.setFont(title_font);
             title_text.setString("SPACE INVADERS");
             title_text.setFillColor(sf::Color::White);
@@ -51,7 +51,7 @@ namespace UI
 
         void MainMenuUIController::initializeButtons()
         {
-            button_font.loadFromFile("assets/fonts/ARCADE_N.ttf");
+            button_font.loadFromFile("Assets/Fonts/ARCADE_N.ttf");
             
             play_btn.Create("PLAY", button_font, sf::Color::White, 40);
             help_btn.Create("HELP", button_font, sf::Color::White, 40);
