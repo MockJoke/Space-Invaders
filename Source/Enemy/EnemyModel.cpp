@@ -8,10 +8,11 @@ namespace Enemy
 
     void EnemyModel::initialize()
     {
+        movement_direction = MovementDirection::RIGHT;
         enemy_position = reference_position;
     }
 
-    sf::Vector2f EnemyModel::getEnemyPosition()
+    sf::Vector2f EnemyModel::getEnemyPosition() const
     {
         return enemy_position;
     }
@@ -21,7 +22,7 @@ namespace Enemy
         enemy_position = position;
     }
 
-    sf::Vector2f EnemyModel::getReferencePosition()
+    sf::Vector2f EnemyModel::getReferencePosition() const
     {
         return reference_position;
     }
@@ -29,5 +30,15 @@ namespace Enemy
     void EnemyModel::setReferencePosition(sf::Vector2f position)
     {
         reference_position = position;
+    }
+
+    MovementDirection EnemyModel::getMovementDirection() const
+    {
+        return movement_direction;
+    }
+
+    void EnemyModel::setMovementDirection(MovementDirection direction)
+    {
+        movement_direction = direction;
     }
 }

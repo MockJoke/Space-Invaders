@@ -3,22 +3,40 @@
 
 namespace Enemy
 {
+    enum class MovementDirection
+    {
+        LEFT,
+        RIGHT,
+        DOWN,
+    };
+    
     class EnemyModel
     {
     private:
         sf::Vector2f reference_position = sf::Vector2f(50.f, 50.f);
         sf::Vector2f enemy_position;
 
+        MovementDirection movement_direction;
+        
     public:
+        const sf::Vector2f left_most_position = sf::Vector2f(50.f, 950.f);
+        const sf::Vector2f right_most_position = sf::Vector2f(1790.f, 950.f);
+
+        const float vertical_travel_distance = 80.f;
+        const float enemy_movement_speed = 250.0f;
+        
         EnemyModel();
         ~EnemyModel();
 
         void initialize();
 
-        sf::Vector2f getEnemyPosition();
+        sf::Vector2f getEnemyPosition() const;
         void setEnemyPosition(sf::Vector2f position);
 
-        sf::Vector2f getReferencePosition();
+        sf::Vector2f getReferencePosition() const;
         void setReferencePosition(sf::Vector2f position);
+
+        MovementDirection getMovementDirection() const;
+        void setMovementDirection(MovementDirection direction);
     };
 }
