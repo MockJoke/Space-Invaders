@@ -1,14 +1,16 @@
 ﻿#include "../../Header/Enemy/EnemyController.h"
+
+#include "../../Header/Enemy/EnemyConfig.h"
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Global/ServiceLocator.h"
 
 namespace Enemy
 {
-    EnemyController::EnemyController()
+    EnemyController::EnemyController(EnemyType type)
     {
         enemy_view = new EnemyView();
-        enemy_model = new EnemyModel();
+        enemy_model = new EnemyModel(type);
     }
 
     EnemyController::~EnemyController()
@@ -115,6 +117,10 @@ namespace Enemy
             enemy_model->setEnemyPosition(currentPosition);
         }
     }
+
+    sf::Vector2f EnemyController::getRandomInitialPosition() { return sf::Vector2f(0, 0); }
+
+    void EnemyController::handleOutOfBounds() { }
     
     sf::Vector2f EnemyController::getEnemyPosition() const
     {
