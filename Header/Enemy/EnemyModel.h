@@ -18,8 +18,8 @@ namespace Enemy
         MovementDirection movement_direction;
         
     public:
-        const sf::Vector2f left_most_position = sf::Vector2f(50.f, 950.f);
-        const sf::Vector2f right_most_position = sf::Vector2f(1790.f, 950.f);
+        const sf::Vector2f left_most_position = sf::Vector2f(50.f, 50.f);
+        const sf::Vector2f right_most_position = sf::Vector2f(1790.f, 50.f);
 
         const float vertical_travel_distance = 80.f;
         const float enemy_movement_speed = 250.0f;
