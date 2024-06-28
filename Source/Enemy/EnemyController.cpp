@@ -1,5 +1,4 @@
 ﻿#include "../../Header/Enemy/EnemyController.h"
-
 #include "../../Header/Enemy/EnemyConfig.h"
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Enemy/EnemyModel.h"
@@ -39,6 +38,16 @@ namespace Enemy
     sf::Vector2f EnemyController::getRandomInitialPosition() { return sf::Vector2f(0, 0); }
 
     void EnemyController::handleOutOfBounds() { }
+
+    EnemyType EnemyController::getEnemyType() const
+    {
+        return enemy_model->getEnemyType();
+    }
+    
+    EnemyState EnemyController::getEnemyState() const
+    {
+        return enemy_model->getEnemyState();
+    }
     
     sf::Vector2f EnemyController::getEnemyPosition() const
     {

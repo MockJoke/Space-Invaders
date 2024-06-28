@@ -13,21 +13,33 @@ namespace Enemy
     {
         enemy_controller = controller;
         game_window = Global::ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-        initializeEnemySprite();
+        initializeEnemySprite(enemy_controller->getEnemyType());
     }
 
-    void EnemyView::initializeEnemySprite()
+    void EnemyView::initializeEnemySprite(EnemyType type)
     {
-        if (enemy_texture.loadFromFile(enemy_texture_path)) //check if the texture loaded
+        switch (type)
         {
-            enemy_sprite.setTexture(enemy_texture); //set the sprite
-            scaleEnemySprite(); // call the method to scale the sprite
+        case EnemyType::SUBZERO:
+            if (enemy_texture.loadFromFile(subzero_texture_path))
+            {
+                enemy_sprite.setTexture(enemy_texture);
+                scaleEnemySprite();
+            }
+            break;
+        case EnemyType::ZAPPER:
+            if (enemy_texture.loadFromFile(zapper_texture_path))
+            {
+                enemy_sprite.setTexture(enemy_texture);
+                scaleEnemySprite();
+            }
+            break;
         }
     }
 
     void EnemyView::scaleEnemySprite()
     {
-        // method to scale the Sprite according to our set dimensions. Don't worry about the static_cast, that will be discussed later.
+        // method to scale the Sprite according to our set dimensions
         enemy_sprite.setScale(
             static_cast<float>(enemy_sprite_width) / enemy_sprite.getTexture()->getSize().x,
             static_cast<float>(enemy_sprite_height) / enemy_sprite.getTexture()->getSize().y

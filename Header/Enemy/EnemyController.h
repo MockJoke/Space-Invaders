@@ -9,7 +9,7 @@ namespace Enemy
 
     class EnemyController
     {
-    private:
+    protected:
         EnemyView* enemy_view;
         EnemyModel* enemy_model;
 
