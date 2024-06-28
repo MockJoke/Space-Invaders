@@ -3,6 +3,7 @@
 #include "../../Header/Enemy/EnemyController.h"
 #include "../../Header/Enemy/Controllers/SubzeroController.h"
 #include "../../Header/Enemy/Controllers/ZapperController.h"
+#include "../../Header/Enemy/Controllers/ThunderSnakeController.h"
 
 namespace Enemy
 {
@@ -58,20 +59,20 @@ namespace Enemy
         case EnemyType::ZAPPER:
             return new Controller::ZapperController (EnemyType::ZAPPER);
 
-            /*case::Enemy::EnemyType::THUNDER_SNAKE:
-                return new ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);*/
+        case::Enemy::EnemyType::THUNDER_SNAKE:
+            return new Controller::ThunderSnakeController(Enemy::EnemyType::THUNDER_SNAKE);
 
         case EnemyType::SUBZERO:
             return new Controller::SubzeroController(EnemyType::SUBZERO);
 
-            /*case::Enemy::EnemyType::UFO:
-                return new UFOController(Enemy::EnemyType::UFO);*/
+        // case::Enemy::EnemyType::UFO:
+        //     return new UFOController(Enemy::EnemyType::UFO);
         }
     }
 
     EnemyType EnemyService::getRandomEnemyType()
     {
-        int randomType = std::rand() % 2;  //since we only have 2 enemies right now
+        int randomType = std::rand() % 3;  //since we only have 3 enemies right now
         return static_cast<Enemy::EnemyType>(randomType);   //cast int to EnemyType enum class
     }
     
