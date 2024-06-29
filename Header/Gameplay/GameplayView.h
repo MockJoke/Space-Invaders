@@ -1,12 +1,13 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
+#include "../Global/Config.h"
 
 namespace Gameplay
 {
     class GameplayView
     {
     private:
-        const sf::String background_texture_path = "Assets/Textures/game_bg.png";
+        const sf::String background_texture_path = Global::Config::background_texture_path;
 
         sf::RenderWindow* game_window;
         sf::Texture background_texture;

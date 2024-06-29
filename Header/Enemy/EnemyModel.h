@@ -21,10 +21,10 @@ namespace Enemy
         const sf::Vector2f left_most_position = sf::Vector2f(50.f, 50.f);
         const sf::Vector2f right_most_position = sf::Vector2f(1790.f, 50.f);
 
-        const float vertical_travel_distance = 80.f;
+        const float vertical_travel_distance = 60.f;
         
         const float vertical_movement_speed = 30.0f;
-        const float horizontal_movement_speed = 100.0f;
+        const float horizontal_movement_speed = 75.0f;
         
         EnemyModel(EnemyType type);
         ~EnemyModel();

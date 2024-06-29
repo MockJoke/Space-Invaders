@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../../Global/Config.h"
 
 namespace Element
 {
@@ -19,7 +20,7 @@ namespace Element
             sf::Texture bunker_texture;
             sf::Sprite bunker_sprite;
 
-            const sf::String bunker_texture_path = "Assets/Textures/bunker.png";
+            const sf::String bunker_texture_path = Global::Config::bunker_texture_path;
 
             void scaleSprite();
             void initializeImage();
