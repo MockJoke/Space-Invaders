@@ -6,6 +6,7 @@
 #include "../Player/PlayerService.h"
 #include "../Time/TimeService.h"
 #include "../UI/UIService.h"
+#include "../Element/ElementService.h"
 
 namespace Global
 {
@@ -22,6 +23,7 @@ namespace Global
         Gameplay::GameplayService* gameplay_service;
         Player::PlayerService* player_service;
         Enemy::EnemyService* enemy_service;
+        Element::ElementService* element_service;
 
         // Private Constructor and Destructor:
     
@@ -51,5 +53,6 @@ namespace Global
         Gameplay::GameplayService* getGameplayService() const;
         Player::PlayerService* getPlayerService() const;
         Enemy::EnemyService* getEnemyService() const;
+        Element::ElementService* getElementService() const;
     };
 }
