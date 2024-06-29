@@ -15,6 +15,7 @@ namespace Global
         player_service = nullptr;
         enemy_service = nullptr;
         element_service = nullptr;
+        sound_service = nullptr;
         
         createServices();   // Call createServices to instantiate services
     }
@@ -36,6 +37,7 @@ namespace Global
         player_service = new Player::PlayerService();
         enemy_service = new Enemy::EnemyService();
         element_service = new Element::ElementService();
+        sound_service = new Sound::SoundService();
     }
 
     void ServiceLocator::clearAllServices()
@@ -49,6 +51,7 @@ namespace Global
         delete(player_service);
         delete(enemy_service);
         delete(element_service);
+        delete(sound_service);
         
         // Reset pointer to null to avoid dangling pointer
         graphic_service = nullptr;
@@ -59,6 +62,7 @@ namespace Global
         player_service = nullptr;
         enemy_service = nullptr;
         element_service = nullptr;
+        sound_service = nullptr;
     }
 
     ServiceLocator* ServiceLocator::getInstance()
@@ -77,6 +81,7 @@ namespace Global
         player_service->initialize();
         enemy_service->initialize();
         element_service->initialize();
+        sound_service->initialize();
     }
 
     void ServiceLocator::update()
@@ -122,4 +127,5 @@ namespace Global
     Player::PlayerService* ServiceLocator::getPlayerService() const { return player_service; }
     Enemy::EnemyService* ServiceLocator::getEnemyService() const { return enemy_service; }
     Element::ElementService* ServiceLocator::getElementService() const { return element_service; }
+    Sound::SoundService* ServiceLocator::getSoundService() const { return sound_service; }
 }
