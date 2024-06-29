@@ -132,10 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Element\Bunker\BunkerController.cpp" />
-    <ClCompile Include="Source\Element\Bunker\BunkerModel.cpp" />
-    <ClCompile Include="Source\Element\Bunker\BunkerView.cpp" />
-    <ClCompile Include="Source\Element\ElementService.cpp" />
+    <ClCompile Include="Source\Elements\Bunker\BunkerController.cpp" />
+    <ClCompile Include="Source\Elements\Bunker\BunkerModel.cpp" />
+    <ClCompile Include="Source\Elements\Bunker\BunkerView.cpp" />
+    <ClCompile Include="Source\Elements\ElementService.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\SubzeroController.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\ThunderSnakeController.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\ZapperController.cpp" />
@@ -679,10 +679,10 @@
     <ClCompile Include="Source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header\Element\Bunker\BunkerController.h" />
-    <ClInclude Include="Header\Element\Bunker\BunkerModel.h" />
-    <ClInclude Include="Header\Element\Bunker\BunkerView.h" />
-    <ClInclude Include="Header\Element\ElementService.h" />
+    <ClInclude Include="Header\Elements\Bunker\BunkerController.h" />
+    <ClInclude Include="Header\Elements\Bunker\BunkerModel.h" />
+    <ClInclude Include="Header\Elements\Bunker\BunkerView.h" />
+    <ClInclude Include="Header\Elements\ElementService.h" />
     <ClInclude Include="Header\Enemy\Controllers\SubzeroController.h" />
     <ClInclude Include="Header\Enemy\Controllers\ThunderSnakeController.h" />
     <ClInclude Include="Header\Enemy\Controllers\ZapperController.h" />

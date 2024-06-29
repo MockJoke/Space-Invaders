@@ -7,5 +7,9 @@ namespace Element
     public:
         ElementService();
         ~ElementService();
+
+        void initialize();
+        void update();
+        void render();
     };    
 }
