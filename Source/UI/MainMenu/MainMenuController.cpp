@@ -41,23 +41,26 @@ namespace UI
 
         void MainMenuUIController::initializeTitle()
         {
-            title_font.loadFromFile("Assets/Fonts/ARCADE_I.ttf");
-            title_text.setFont(title_font);
-            title_text.setString("SPACE INVADERS");
-            title_text.setFillColor(sf::Color::White);
-            title_text.setCharacterSize(80);
-            title_text.setPosition(static_cast<float>(game_window->getSize().x) / 2.f - title_text.getGlobalBounds().width/2.f, 150.f);
+            if (title_font.loadFromFile(title_font_texture_path))
+            {
+                title_text.setFont(title_font);
+                title_text.setString("SPACE INVADERS");
+                title_text.setFillColor(sf::Color::White);
+                title_text.setCharacterSize(80);
+                title_text.setPosition(static_cast<float>(game_window->getSize().x) / 2.f - title_text.getGlobalBounds().width/2.f, 150.f);
+            }
         }
 
         void MainMenuUIController::initializeButtons()
         {
-            button_font.loadFromFile("Assets/Fonts/ARCADE_N.ttf");
-            
-            play_btn.Create("PLAY", button_font, sf::Color::White, 40);
-            help_btn.Create("HELP", button_font, sf::Color::White, 40);
-            quit_btn.Create("QUIT", button_font, sf::Color::White, 40);
-            
-            positionButtons();
+            if (button_font.loadFromFile(button_font_texture_path))
+            {
+                play_btn.Create("PLAY", button_font, sf::Color::White, 40);
+                help_btn.Create("HELP", button_font, sf::Color::White, 40);
+                quit_btn.Create("QUIT", button_font, sf::Color::White, 40);
+                
+                positionButtons();
+            }
         }
 
         void MainMenuUIController::positionButtons()
@@ -99,6 +102,8 @@ namespace UI
             
             if (clickedButton(&play_btn, mouse_position))
             {
+                Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::BUTTON_CLICK);
+                Global::ServiceLocator::getInstance()->getSoundService()->playBackgroundMusic();
                 Main::GameService::setGameState(Main::GameState::GAMEPLAY);
             }
 

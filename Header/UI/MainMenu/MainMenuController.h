@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
 #include "../Button.h"
+#include "../../Global/Config.h"
 
 namespace UI
 {
@@ -9,13 +10,16 @@ namespace UI
         class MainMenuUIController
         {
         private:
-            const sf::String background_texture_path = "Assets/Textures/game_bg.png";
+            const sf::String background_texture_path = Global::Config::background_texture_path;
 
             sf::RenderWindow* game_window;
 
             sf::Texture background_texture;
             sf::Sprite background_sprite;
 
+            const sf::String title_font_texture_path = Global::Config::ArcadeI_font_path;
+            const sf::String button_font_texture_path = Global::Config::ArcadeN_font_path;
+            
             sf::Font title_font;
             sf::Text title_text;
 

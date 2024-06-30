@@ -8,7 +8,7 @@ namespace Enemy
         class ZapperController : public EnemyController
         {
         private:
-            float vertical_travel_distance = 120.f;
+            float vertical_travel_distance = 90.f;
 
             void move() override;
             void moveLeft();

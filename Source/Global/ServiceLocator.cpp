@@ -1,5 +1,4 @@
 ﻿#include "../../Header/Global/ServiceLocator.h"
-
 #include "../../Header/Main/GameService.h"
 
 namespace Global
@@ -15,6 +14,8 @@ namespace Global
         gameplay_service = nullptr;
         player_service = nullptr;
         enemy_service = nullptr;
+        element_service = nullptr;
+        sound_service = nullptr;
         
         createServices();   // Call createServices to instantiate services
     }
@@ -35,6 +36,8 @@ namespace Global
         gameplay_service = new Gameplay::GameplayService();
         player_service = new Player::PlayerService();
         enemy_service = new Enemy::EnemyService();
+        element_service = new Element::ElementService();
+        sound_service = new Sound::SoundService();
     }
 
     void ServiceLocator::clearAllServices()
@@ -47,6 +50,8 @@ namespace Global
         delete(gameplay_service);
         delete(player_service);
         delete(enemy_service);
+        delete(element_service);
+        delete(sound_service);
         
         // Reset pointer to null to avoid dangling pointer
         graphic_service = nullptr;
@@ -56,6 +61,8 @@ namespace Global
         gameplay_service = nullptr;
         player_service = nullptr;
         enemy_service = nullptr;
+        element_service = nullptr;
+        sound_service = nullptr;
     }
 
     ServiceLocator* ServiceLocator::getInstance()
@@ -73,6 +80,8 @@ namespace Global
         gameplay_service->initialize();
         player_service->initialize();
         enemy_service->initialize();
+        element_service->initialize();
+        sound_service->initialize();
     }
 
     void ServiceLocator::update()
@@ -89,6 +98,7 @@ namespace Global
             gameplay_service->update();
             player_service->update();
             enemy_service->update();
+            element_service->update();
         }
     }
 
@@ -104,6 +114,7 @@ namespace Global
             gameplay_service->render();
             player_service->render();
             enemy_service->render();
+            element_service->render();
         }
     }
 
@@ -115,4 +126,6 @@ namespace Global
     Gameplay::GameplayService* ServiceLocator::getGameplayService() const { return gameplay_service; }
     Player::PlayerService* ServiceLocator::getPlayerService() const { return player_service; }
     Enemy::EnemyService* ServiceLocator::getEnemyService() const { return enemy_service; }
+    Element::ElementService* ServiceLocator::getElementService() const { return element_service; }
+    Sound::SoundService* ServiceLocator::getSoundService() const { return sound_service; }
 }

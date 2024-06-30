@@ -132,6 +132,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Elements\Bunker\BunkerController.cpp" />
+    <ClCompile Include="Source\Elements\Bunker\BunkerModel.cpp" />
+    <ClCompile Include="Source\Elements\Bunker\BunkerView.cpp" />
+    <ClCompile Include="Source\Elements\ElementService.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\SubzeroController.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\ThunderSnakeController.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\ZapperController.cpp" />
@@ -217,6 +221,7 @@
     <ClCompile Include="Source\Gameplay\GameplayController.cpp" />
     <ClCompile Include="Source\Gameplay\GameplayService.cpp" />
     <ClCompile Include="Source\Gameplay\GameplayView.cpp" />
+    <ClCompile Include="Source\Global\Config.cpp" />
     <ClCompile Include="Source\Global\ServiceLocator.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -595,6 +600,7 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="Source\Player\PlayerView.cpp" />
+    <ClCompile Include="Source\Sound\SoundService.cpp" />
     <ClCompile Include="Source\Time\TimeService.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -675,6 +681,10 @@
     <ClCompile Include="Source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\Elements\Bunker\BunkerController.h" />
+    <ClInclude Include="Header\Elements\Bunker\BunkerModel.h" />
+    <ClInclude Include="Header\Elements\Bunker\BunkerView.h" />
+    <ClInclude Include="Header\Elements\ElementService.h" />
     <ClInclude Include="Header\Enemy\Controllers\SubzeroController.h" />
     <ClInclude Include="Header\Enemy\Controllers\ThunderSnakeController.h" />
     <ClInclude Include="Header\Enemy\Controllers\ZapperController.h" />
@@ -687,6 +697,7 @@
     <ClInclude Include="Header\Gameplay\GameplayController.h" />
     <ClInclude Include="Header\Gameplay\GameplayService.h" />
     <ClInclude Include="Header\Gameplay\GameplayView.h" />
+    <ClInclude Include="Header\Global\Config.h" />
     <ClInclude Include="Header\Global\ServiceLocator.h" />
     <ClInclude Include="Header\Graphic\GraphicService.h" />
     <ClInclude Include="Header\Main\GameService.h" />
@@ -694,6 +705,7 @@
     <ClInclude Include="Header\Player\PlayerModel.h" />
     <ClInclude Include="Header\Player\PlayerService.h" />
     <ClInclude Include="Header\Player\PlayerView.h" />
+    <ClInclude Include="Header\Sound\SoundService.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
     <ClInclude Include="Header\UI\Button.h" />
     <ClInclude Include="Header\UI\MainMenu\MainMenuController.h" />
