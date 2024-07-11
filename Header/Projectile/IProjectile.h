@@ -16,6 +16,6 @@ namespace Projectile
         virtual void updateProjectilePosition() = 0;
         virtual sf::Vector2f getProjectilePosition() = 0;
 
-        virtual ~IProjectile() {};
+        virtual ~IProjectile() {}
     };
 }

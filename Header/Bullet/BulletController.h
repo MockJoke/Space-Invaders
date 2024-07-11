@@ -28,6 +28,6 @@ namespace Bullet
         void render() override;
 
         sf::Vector2f getProjectilePosition() override;
-        BulletType getBulletType();
+        BulletType getBulletType() const;
     };
 }
