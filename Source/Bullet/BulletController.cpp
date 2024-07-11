@@ -1,4 +1,3 @@
-#pragma once
 #include "../../Header/Bullet/BulletController.h"
 
 namespace Bullet
