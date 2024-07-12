@@ -20,7 +20,7 @@ namespace Enemy
     public:
         const sf::Vector2f left_most_position = sf::Vector2f(50.f, 50.f);
         const sf::Vector2f right_most_position = sf::Vector2f(1790.f, 50.f);
-        const sf::Vector2f barrel_position_offset = sf::Vector2f(40.f, 50.f);
+        const sf::Vector2f barrel_position_offset = sf::Vector2f(30.f, 50.f);
 
         const float vertical_travel_distance = 60.f;
         
