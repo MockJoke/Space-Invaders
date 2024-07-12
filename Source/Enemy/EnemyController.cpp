@@ -28,6 +28,8 @@ namespace Enemy
     void EnemyController::update()
     {
         move();
+        updateFireTimer();
+        processBulletFire();
         enemy_view->update();
         handleOutOfBounds();
     }
@@ -37,7 +39,23 @@ namespace Enemy
         enemy_view->render();
     }
 
-    sf::Vector2f EnemyController::getRandomInitialPosition()
+    void EnemyController::updateFireTimer()
+    {
+        elapsed_fire_duration += Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+    }
+
+    // if elapsed duration is equal to or more than the amount of time,
+    // we want to wait until firing then call the fire method
+    void EnemyController::processBulletFire()
+    {
+        if (elapsed_fire_duration >= rate_of_fire)
+        {
+            fireBullet();
+            elapsed_fire_duration = 0.f; // reset elapsed duration back to 0
+        }
+    }
+
+    sf::Vector2f EnemyController::getRandomInitialPosition() const
     {
         // Calculate the distance between the leftmost and rightmost positions of the enemy.
         float x_offset_distance = (std::rand() % static_cast<int>(enemy_model->right_most_position.x - enemy_model->left_most_position.x));

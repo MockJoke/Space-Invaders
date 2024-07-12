@@ -5,14 +5,14 @@ namespace Bullet
 {
     namespace Controller
     {
-        class FrostBulletController : public BulletController
+        class PlayerBulletController : public BulletController
         {
         private:
-            const float frost_movement_speed = 400.f;
+            const float player_bullet_movement_speed = 500.f;
             
         public:
-            FrostBulletController(BulletType type);
-            ~FrostBulletController();
+            PlayerBulletController(BulletType type);
+            ~PlayerBulletController();
 
             void initialize(sf::Vector2f position, MovementDirection direction) override;
         };

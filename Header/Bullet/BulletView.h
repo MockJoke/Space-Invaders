@@ -9,8 +9,8 @@ namespace Bullet
     class BulletView
     {
     private:
-        const float bullet_sprite_width = 18.f;
-        const float bullet_sprite_height = 18.f;
+        const float bullet_sprite_width = 20.f;
+        const float bullet_sprite_height = 20.f;
 
         sf::RenderWindow* game_window;
         sf::Texture bullet_texture;

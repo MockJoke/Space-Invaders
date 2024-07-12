@@ -113,5 +113,12 @@ namespace Enemy
                 enemy_model->setEnemyPosition(currentPosition);
             }
         }
+
+        void ThunderSnakeController::fireBullet()
+        {
+            Global::ServiceLocator::getInstance()->getBulletService()->spawnBullet(Bullet::BulletType::TORPEDO,
+                enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
+                Bullet::MovementDirection::DOWN);
+        }
     }
 }

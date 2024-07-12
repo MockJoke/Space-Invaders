@@ -1,3 +1,4 @@
+#include <iostream>
 #include "../../Header/Bullet/BulletView.h"
 #include "../../Header/Bullet/BulletController.h"
 #include "../../Header/Global/ServiceLocator.h"
@@ -6,7 +7,7 @@
 
 namespace Bullet
 {
-    BulletView::BulletView() {  }
+    BulletView::BulletView() { }
 
     BulletView::~BulletView() { }
 
@@ -21,6 +22,13 @@ namespace Bullet
     {
         switch (type)
         {
+        case BulletType::PLAYER_BULLET:
+            if (bullet_texture.loadFromFile(Global::Config::player_bullet_texture_path))
+            {
+                bullet_sprite.setTexture(bullet_texture);
+                scaleImage();
+            }
+            break;
         case BulletType::LASER_BULLET:
             if (bullet_texture.loadFromFile(Global::Config::laser_bullet_texture_path))
             {

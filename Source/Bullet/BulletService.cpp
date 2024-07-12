@@ -1,6 +1,7 @@
 #include "../../Header/Bullet/BulletService.h"
 #include "../../Header/Bullet/BulletController.h"
 #include "../../Header/Bullet/BulletConfig.h"
+#include "../../Header/Bullet/Controllers/PlayerBulletController.h"
 #include "../../Header/Bullet/Controllers/FrostBulletController.h"
 #include "../../Header/Bullet/Controllers/LaserBulletController.h"
 #include "../../Header/Bullet/Controllers/TorpedoeController.h"
@@ -27,6 +28,9 @@ namespace Bullet
     {
         switch (bullet_type)
         {
+        case BulletType::PLAYER_BULLET:
+            return new Controller::PlayerBulletController(BulletType::PLAYER_BULLET);
+            
         case BulletType::LASER_BULLET:
             return new Controller::LaserBulletController(BulletType::LASER_BULLET);
 
