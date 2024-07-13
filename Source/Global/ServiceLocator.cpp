@@ -16,6 +16,7 @@ namespace Global
         enemy_service = nullptr;
         element_service = nullptr;
         sound_service = nullptr;
+        bullet_service = nullptr;
         
         createServices();   // Call createServices to instantiate services
     }
@@ -38,6 +39,7 @@ namespace Global
         enemy_service = new Enemy::EnemyService();
         element_service = new Element::ElementService();
         sound_service = new Sound::SoundService();
+        bullet_service = new Bullet::BulletService();
     }
 
     void ServiceLocator::clearAllServices()
@@ -52,6 +54,7 @@ namespace Global
         delete(enemy_service);
         delete(element_service);
         delete(sound_service);
+        delete(bullet_service);
         
         // Reset pointer to null to avoid dangling pointer
         graphic_service = nullptr;
@@ -63,6 +66,7 @@ namespace Global
         enemy_service = nullptr;
         element_service = nullptr;
         sound_service = nullptr;
+        bullet_service = nullptr;
     }
 
     ServiceLocator* ServiceLocator::getInstance()
@@ -82,6 +86,7 @@ namespace Global
         enemy_service->initialize();
         element_service->initialize();
         sound_service->initialize();
+        bullet_service->initialize();
     }
 
     void ServiceLocator::update()
@@ -99,6 +104,7 @@ namespace Global
             player_service->update();
             enemy_service->update();
             element_service->update();
+            bullet_service->update();
         }
     }
 
@@ -115,6 +121,7 @@ namespace Global
             player_service->render();
             enemy_service->render();
             element_service->render();
+            bullet_service->render();
         }
     }
 
@@ -128,4 +135,5 @@ namespace Global
     Enemy::EnemyService* ServiceLocator::getEnemyService() const { return enemy_service; }
     Element::ElementService* ServiceLocator::getElementService() const { return element_service; }
     Sound::SoundService* ServiceLocator::getSoundService() const { return sound_service; }
+    Bullet::BulletService* ServiceLocator::getBulletService() const { return bullet_service; }
 }

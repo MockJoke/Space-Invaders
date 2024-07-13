@@ -20,6 +20,7 @@ namespace Player
     public:
         const sf::Vector2f left_most_position = sf::Vector2f(50.0f, 950.f);
         const sf::Vector2f right_most_position = sf::Vector2f(1790.0f, 950.f);
+        const sf::Vector2f barrel_position_offset = sf::Vector2f(30.f, 10.f);
     
         const float player_movement_speed = 350.0f;
 

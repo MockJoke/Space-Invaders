@@ -106,5 +106,14 @@ namespace Enemy
                 enemy_model->setEnemyPosition(currentPosition);
             }
         }
+
+        void ZapperController::fireBullet()
+        {
+            // spawn the bullet
+            Global::ServiceLocator::getInstance()->getBulletService()->spawnBullet(Bullet::BulletType::LASER_BULLET, 
+                enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
+                Bullet::MovementDirection::DOWN);
+        }
+        
     }
 }

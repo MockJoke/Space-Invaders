@@ -8,6 +8,7 @@
 #include "../UI/UIService.h"
 #include "../Elements/ElementService.h"
 #include "../Sound/SoundService.h"
+#include "../Bullet/BulletService.h"
 
 namespace Global
 {
@@ -26,6 +27,7 @@ namespace Global
         Enemy::EnemyService* enemy_service;
         Element::ElementService* element_service;
         Sound::SoundService* sound_service;
+        Bullet::BulletService* bullet_service;
 
         // Private Constructor and Destructor:
     
@@ -57,5 +59,6 @@ namespace Global
         Enemy::EnemyService* getEnemyService() const;
         Element::ElementService* getElementService() const;
         Sound::SoundService* getSoundService() const;
+        Bullet::BulletService* getBulletService() const;
     };
 }

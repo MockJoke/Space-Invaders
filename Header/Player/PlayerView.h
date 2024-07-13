@@ -11,7 +11,7 @@ namespace Player
     private:
         const sf::String player_texture_path = Global::Config::player_texture_path;
         const float player_sprite_width = 80.f;
-        const float player_sprite_height = 40.0f;
+        const float player_sprite_height = 80.f;
 
         sf::RenderWindow* game_window;
     

@@ -15,7 +15,7 @@ namespace Enemy
         const sf::String thunder_snake_texture_path = Global::Config::thunder_snake_texture_path;
 
         const float enemy_sprite_width = 80.f;
-        const float enemy_sprite_height = 60.f;
+        const float enemy_sprite_height = 80.f;
 
         EnemyController* enemy_controller;
 

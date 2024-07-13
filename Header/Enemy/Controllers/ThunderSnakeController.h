@@ -16,6 +16,8 @@ namespace Enemy
             void moveDiagonalLeft();
             void moveDiagonalRight();
 
+            void fireBullet() override;
+
         public:
             ThunderSnakeController(EnemyType type);
             ~ThunderSnakeController();
