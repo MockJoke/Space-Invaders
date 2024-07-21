@@ -16,9 +16,9 @@ namespace Enemy
 
         void updateSpawnTimer();
         void processEnemySpawn();
-        EnemyType getRandomEnemyType();
+        EnemyType getRandomEnemyType() const;
         EnemyController* createEnemy(EnemyType enemy_type);
-        void destroy();
+        void destroy() const;
         
     public:
         EnemyService();
@@ -26,7 +26,7 @@ namespace Enemy
 
         void initialize();
         void update();
-        void render();
+        void render() const;
 
         EnemyController* spawnEnemy();
         void destroyEnemy(EnemyController* enemy_controller);

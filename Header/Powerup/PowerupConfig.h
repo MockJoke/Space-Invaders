@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Powerups
+namespace Powerup
 {
     enum class PowerupType
     {

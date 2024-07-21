@@ -1,7 +1,7 @@
 #pragma once
 #include "../../header/Collectible/ICollectible.h"
 
-namespace Powerups
+namespace Powerup
 {
     class PowerupView;
     class PowerupModel;

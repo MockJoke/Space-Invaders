@@ -1,8 +1,8 @@
-#include "../../header/Powerups/Controllers/ShieldController.h"
+#include "../../header/Powerup/Controllers/ShieldController.h"
 
-namespace Powerups
+namespace Powerup
 {
-    namespace Controllers
+    namespace Controller
     {
         ShieldController::ShieldController(PowerupType type) : PowerupController(type) {}
 

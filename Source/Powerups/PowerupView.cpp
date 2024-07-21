@@ -1,10 +1,10 @@
-#include "../../header/Powerups/PowerupView.h"
+#include "../../header/Powerup/PowerupView.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Global/Config.h"
-#include "../../header/Powerups/PowerupController.h"
-#include "../../header/Powerups/PowerupConfig.h"
+#include "../../header/Powerup/PowerupController.h"
+#include "../../header/Powerup/PowerupConfig.h"
 
-namespace Powerups
+namespace Powerup
 {
     using namespace Global;
 

@@ -3,7 +3,7 @@
 #include "SFML/System/Vector2.hpp"
 #include "../../Header/Collectible/ICollectible.h"
 
-namespace Powerups
+namespace Powerup
 {
     class PowerupController;
     enum class PowerupType;
@@ -14,15 +14,15 @@ namespace Powerups
         std::vector<Collectible::ICollectible*> powerup_list;
 
         PowerupController* createPowerup(PowerupType powerup_type);
-        void destroy();
+        void destroy() const;
 
     public:
         PowerupService();
         virtual ~PowerupService();
 
-        void initialize();
-        void update();
-        void render();
+        static void initialize();
+        void update() const;
+        void render() const;
 
         PowerupController* spawnPowerup(PowerupType powerup_type, sf::Vector2f position);
         void destroyPowerup(PowerupController* powerup_controller);

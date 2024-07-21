@@ -1,8 +1,8 @@
-#include "../../header/Powerups/Controllers/RapidFireController.h"
+#include "../../header/Powerup/Controllers/RapidFireController.h"
 
-namespace Powerups
+namespace Powerup
 {
-    namespace Controllers
+    namespace Controller
     {
         RapidFireController::RapidFireController(PowerupType type) : PowerupController(type) {}
 

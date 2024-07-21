@@ -1,9 +1,9 @@
-#include "../../header/Powerups/PowerupController.h"
-#include "../../header/Powerups/PowerupView.h"
-#include "../../header/Powerups/PowerupModel.h"
+#include "../../header/Powerup/PowerupController.h"
+#include "../../header/Powerup/PowerupView.h"
+#include "../../header/Powerup/PowerupModel.h"
 #include "../../header/Global/ServiceLocator.h"
 
-namespace Powerups
+namespace Powerup
 {
     PowerupController::PowerupController(PowerupType type)
     {

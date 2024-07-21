@@ -1,4 +1,4 @@
-#include "../../Header/Enemy/Controllers/ZapperController.h"
+#include "../../Header/Enemy/Controllers/UFOController.h"
 #include "../../../Header/Global/ServiceLocator.h"
 #include "../../Header/Enemy/EnemyModel.h"
 
@@ -6,16 +6,16 @@ namespace Enemy
 {
     namespace Controller
     {
-        ZapperController::ZapperController(EnemyType type) : EnemyController(type) { }
+        UFOController::UFOController(EnemyType type) : EnemyController(type) { }
 
-        ZapperController::~ZapperController() { }
+        UFOController::~UFOController() { }
 
-        void ZapperController::initialize()
+        void UFOController::initialize()
         {
             EnemyController::initialize();
         }
 
-        void ZapperController::move()
+        void UFOController::move()
         {
             switch (enemy_model->getMovementDirection())
             {
@@ -26,14 +26,10 @@ namespace Enemy
             case MovementDirection::RIGHT:
                 moveRight();
                 break;
-
-            case MovementDirection::DOWN:
-                moveDown();
-                break;
             }
         }
         
-        void ZapperController::moveLeft()
+        void UFOController::moveLeft()
         {
             // Get the current position of the enemy
             sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
@@ -55,7 +51,7 @@ namespace Enemy
             }
         }
 		
-        void ZapperController::moveRight()
+        void UFOController::moveRight()
         {
             // Get the current position of the enemy
             sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
@@ -77,43 +73,17 @@ namespace Enemy
             }
         }
 
-        void ZapperController::moveDown()
+        void UFOController::fireBullet()
         {
-            // Get the current position of the enemy
-            sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
-
-            // Update the position to move down
-            currentPosition.y += enemy_model->horizontal_movement_speed * Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-
-            // Check if the enemy reached the reference position plus vertical travel distance
-            if (currentPosition.y >= enemy_model->getReferencePosition().y + vertical_travel_distance)
-            {
-                // Check if the enemy reference position is on the left side
-                if (enemy_model->getReferencePosition().x <= enemy_model->left_most_position.x)
-                {
-                    // Set movement direction to RIGHT
-                    enemy_model->setMovementDirection(MovementDirection::RIGHT);
-                }
-                else
-                {
-                    // Set movement direction to LEFT
-                    enemy_model->setMovementDirection(MovementDirection::LEFT);
-                }
-            }
-            else
-            {
-                // Update the enemy position
-                enemy_model->setEnemyPosition(currentPosition);
-            }
         }
 
-        void ZapperController::fireBullet()
+        Powerup::PowerupType UFOController::getRandomPowerupType()
         {
-            // spawn the bullet
-            Global::ServiceLocator::getInstance()->getBulletService()->spawnBullet(Bullet::BulletType::LASER_BULLET, 
-                enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
-                Bullet::MovementDirection::DOWN);
+            std::srand(static_cast<unsigned int>(std::time(nullptr)));
+			
+            //We add '1'  to TRIPPLE_LASER below because enum has a 0 index, making the bomb number 2, we need to add 1 to make it 3 
+            int random_value = std::rand() % (static_cast<int>(Powerup::PowerupType::TRIPPLE_LASER) + 1);																																																																																
+            return static_cast<Powerup::PowerupType>(random_value);
         }
-        
     }
 }

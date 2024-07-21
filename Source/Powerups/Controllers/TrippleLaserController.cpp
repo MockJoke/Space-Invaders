@@ -1,8 +1,8 @@
-#include "../../header/Powerups/Controllers/TrippleLaserController.h"
+#include "../../header/Powerup/Controllers/TrippleLaserController.h"
 
-namespace Powerups
+namespace Powerup
 {
-    namespace Controllers
+    namespace Controller
     {
         TrippleLaserController::TrippleLaserController(PowerupType type) : PowerupController(type) {}
 

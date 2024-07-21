@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-namespace Powerups
+namespace Powerup
 {
     enum class PowerupType;
 

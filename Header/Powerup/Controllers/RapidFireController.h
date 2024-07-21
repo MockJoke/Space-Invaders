@@ -1,9 +1,9 @@
 #pragma once
-#include "../../header/Powerups/PowerupController.h"
+#include "../../header/Powerup/PowerupController.h"
 
-namespace Powerups
+namespace Powerup
 {
-    namespace Controllers
+    namespace Controller
     {
         class RapidFireController : public PowerupController
         {

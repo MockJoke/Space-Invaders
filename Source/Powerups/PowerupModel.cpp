@@ -1,6 +1,6 @@
-#include "../../header/Powerups/PowerupModel.h"
+#include "../../header/Powerup/PowerupModel.h"
 
-namespace Powerups
+namespace Powerup
 {
     PowerupModel::PowerupModel(PowerupType type)
     {
