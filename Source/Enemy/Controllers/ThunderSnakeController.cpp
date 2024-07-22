@@ -19,19 +19,19 @@ namespace Enemy
         {
             switch (enemy_model->getMovementDirection())
             {
-            case::Enemy::MovementDirection::LEFT:
+            case MovementDirection::LEFT:
                 moveLeft();
                 break;
 
-            case::Enemy::MovementDirection::RIGHT:
+            case MovementDirection::RIGHT:
                 moveRight();
                 break;
 
-            case::Enemy::MovementDirection::LEFT_DOWN:
+            case MovementDirection::LEFT_DOWN:
                 moveDiagonalLeft();
                 break;
 
-            case::Enemy::MovementDirection::RIGHT_DOWN:
+            case MovementDirection::RIGHT_DOWN:
                 moveDiagonalRight();
                 break;
             }

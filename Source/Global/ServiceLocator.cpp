@@ -17,6 +17,7 @@ namespace Global
         element_service = nullptr;
         sound_service = nullptr;
         bullet_service = nullptr;
+        powerup_service = nullptr;
         
         createServices();   // Call createServices to instantiate services
     }
@@ -40,6 +41,7 @@ namespace Global
         element_service = new Element::ElementService();
         sound_service = new Sound::SoundService();
         bullet_service = new Bullet::BulletService();
+        powerup_service = new Powerup::PowerupService();
     }
 
     void ServiceLocator::clearAllServices()
@@ -55,6 +57,7 @@ namespace Global
         delete(element_service);
         delete(sound_service);
         delete(bullet_service);
+        delete(powerup_service);
         
         // Reset pointer to null to avoid dangling pointer
         graphic_service = nullptr;
@@ -67,6 +70,7 @@ namespace Global
         element_service = nullptr;
         sound_service = nullptr;
         bullet_service = nullptr;
+        powerup_service = nullptr;
     }
 
     ServiceLocator* ServiceLocator::getInstance()
@@ -75,7 +79,7 @@ namespace Global
         return &instance;
     }
 
-    void ServiceLocator::initialize()
+    void ServiceLocator::initialize() const
     {
         graphic_service->initialize();
         time_service->initialize();
@@ -87,9 +91,10 @@ namespace Global
         element_service->initialize();
         sound_service->initialize();
         bullet_service->initialize();
+        powerup_service->initialize();
     }
 
-    void ServiceLocator::update()
+    void ServiceLocator::update() const
     {
         // Updates all services
         graphic_service->update();
@@ -105,10 +110,11 @@ namespace Global
             enemy_service->update();
             element_service->update();
             bullet_service->update();
+            powerup_service->update();
         }
     }
 
-    void ServiceLocator::render()
+    void ServiceLocator::render() const
     {
         // Renders using the services
         graphic_service->render();
@@ -122,6 +128,7 @@ namespace Global
             enemy_service->render();
             element_service->render();
             bullet_service->render();
+            powerup_service->render();
         }
     }
 
@@ -136,4 +143,5 @@ namespace Global
     Element::ElementService* ServiceLocator::getElementService() const { return element_service; }
     Sound::SoundService* ServiceLocator::getSoundService() const { return sound_service; }
     Bullet::BulletService* ServiceLocator::getBulletService() const { return bullet_service; }
+    Powerup::PowerupService* ServiceLocator::getPowerupService() const { return powerup_service; }
 }

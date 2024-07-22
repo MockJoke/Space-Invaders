@@ -146,6 +146,7 @@
     <ClCompile Include="Source\Elements\ElementService.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\SubzeroController.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\ThunderSnakeController.cpp" />
+    <ClCompile Include="Source\Enemy\Controllers\UFOController.cpp" />
     <ClCompile Include="Source\Enemy\Controllers\ZapperController.cpp" />
     <ClCompile Include="Source\Enemy\EnemyController.cpp" />
     <ClCompile Include="Source\Enemy\EnemyModel.cpp" />
@@ -608,6 +609,13 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="Source\Player\PlayerView.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\RapidFireController.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\ShieldController.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\TrippleLaserController.cpp" />
+    <ClCompile Include="Source\Powerups\PowerupController.cpp" />
+    <ClCompile Include="Source\Powerups\PowerupModel.cpp" />
+    <ClCompile Include="Source\Powerups\PowerupService.cpp" />
+    <ClCompile Include="Source\Powerups\PowerupView.cpp" />
     <ClCompile Include="Source\Sound\SoundService.cpp" />
     <ClCompile Include="Source\Time\TimeService.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
@@ -698,12 +706,14 @@
     <ClInclude Include="Header\Bullet\Controllers\LaserBulletController.h" />
     <ClInclude Include="Header\Bullet\Controllers\PlayerBulletController.h" />
     <ClInclude Include="Header\Bullet\Controllers\TorpedoeController.h" />
+    <ClInclude Include="Header\Collectible\ICollectible.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerController.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerModel.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerView.h" />
     <ClInclude Include="Header\Elements\ElementService.h" />
     <ClInclude Include="Header\Enemy\Controllers\SubzeroController.h" />
     <ClInclude Include="Header\Enemy\Controllers\ThunderSnakeController.h" />
+    <ClInclude Include="Header\Enemy\Controllers\UFOController.h" />
     <ClInclude Include="Header\Enemy\Controllers\ZapperController.h" />
     <ClInclude Include="Header\Enemy\EnemyConfig.h" />
     <ClInclude Include="Header\Enemy\EnemyController.h" />
@@ -722,12 +732,23 @@
     <ClInclude Include="Header\Player\PlayerModel.h" />
     <ClInclude Include="Header\Player\PlayerService.h" />
     <ClInclude Include="Header\Player\PlayerView.h" />
+    <ClInclude Include="Header\Powerup\Controllers\RapidFireController.h" />
+    <ClInclude Include="Header\Powerup\Controllers\ShieldController.h" />
+    <ClInclude Include="Header\Powerup\Controllers\TrippleLaserController.h" />
+    <ClInclude Include="Header\Powerup\PowerupConfig.h" />
+    <ClInclude Include="Header\Powerup\PowerupController.h" />
+    <ClInclude Include="Header\Powerup\PowerupModel.h" />
+    <ClInclude Include="Header\Powerup\PowerupService.h" />
+    <ClInclude Include="Header\Powerup\PowerupView.h" />
     <ClInclude Include="Header\Projectile\IProjectile.h" />
     <ClInclude Include="Header\Sound\SoundService.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
     <ClInclude Include="Header\UI\Button.h" />
     <ClInclude Include="Header\UI\MainMenu\MainMenuController.h" />
     <ClInclude Include="Header\UI\UIService.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Source\Collectible\" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

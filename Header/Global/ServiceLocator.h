@@ -9,6 +9,7 @@
 #include "../Elements/ElementService.h"
 #include "../Sound/SoundService.h"
 #include "../Bullet/BulletService.h"
+#include "../Powerup/PowerupService.h"
 
 namespace Global
 {
@@ -28,6 +29,7 @@ namespace Global
         Element::ElementService* element_service;
         Sound::SoundService* sound_service;
         Bullet::BulletService* bullet_service;
+        Powerup::PowerupService* powerup_service;
 
         // Private Constructor and Destructor:
     
@@ -45,9 +47,9 @@ namespace Global
         // Public Methods:
         static ServiceLocator* getInstance();  // Provides a method to access the unique ServiceLocator instance (object)
 
-        void initialize(); 			//	Initializes the ServiceLocator
-        void update(); 				//	Updates all services
-        void render(); 				//	Renders using the services
+        void initialize() const; 			//	Initializes the ServiceLocator
+        void update() const; 				//	Updates all services
+        void render() const; 				//	Renders using the services
 
         // Methods to Get Specific Services: 
         Graphic::GraphicService* getGraphicService() const;
@@ -60,5 +62,6 @@ namespace Global
         Element::ElementService* getElementService() const;
         Sound::SoundService* getSoundService() const;
         Bullet::BulletService* getBulletService() const;
+        Powerup::PowerupService* getPowerupService() const;
     };
 }
