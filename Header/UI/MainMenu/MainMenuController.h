@@ -40,12 +40,16 @@ namespace UI
 
             void processButtonInteractions();
             bool clickedButton(const Button*, sf::Vector2f);
+
+            void destroy();
+            
         public:
             MainMenuUIController();
 
-            void initialize();
-            void update();
-            void render();
+            void initialize() override;
+            void update() override;
+            void render() override;
+            void show() override;
         };
     }
 }

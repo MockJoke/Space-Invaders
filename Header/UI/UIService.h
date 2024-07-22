@@ -10,8 +10,8 @@ namespace UI
         MainMenu::MainMenuUIController* main_menu_controller;
 
         void createControllers();
-        void initializeControllers();
-        Interface::IUIController* getCurrentUIController();
+        void initializeControllers() const;
+        Interface::IUIController* getCurrentUIController() const;
         void destroy();
 
     public:
