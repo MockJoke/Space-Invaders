@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
+#include "../../header/UI/Interface/IUIController.h"
 #include "../Button.h"
 #include "../../Global/Config.h"
 
@@ -7,7 +8,7 @@ namespace UI
 {
     namespace MainMenu
     {
-        class MainMenuUIController
+        class MainMenuUIController : public Interface::IUIController
         {
         private:
             const sf::String background_texture_path = Global::Config::background_texture_path;
