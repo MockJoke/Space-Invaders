@@ -1,50 +1,61 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
-#include "../Button.h"
 #include "../../Global/Config.h"
+#include "../../header/UI/Interface/IUIController.h"
+#include "../../header/UI/UIElement/ImageView.h"
+#include "../../header/UI/UIElement/ButtonView.h"
+#include "../../header/UI/UIElement/TextView.h"
 
 namespace UI
 {
     namespace MainMenu
     {
-        class MainMenuUIController
+        class MainMenuUIController : public Interface::IUIController
         {
         private:
-            const sf::String background_texture_path = Global::Config::background_texture_path;
+            const float background_alpha = 85.0f;
 
-            sf::RenderWindow* game_window;
+            const float play_btn_top_offset = 500.f;
+            const float help_btn_top_offset = 700.f;
+            const float quit_btn_top_offset = 900.f;
 
-            sf::Texture background_texture;
-            sf::Sprite background_sprite;
+            const float btn_width = 400.f;
+            const float btn_height = 140.f;
 
-            const sf::String title_font_texture_path = Global::Config::ArcadeI_font_path;
-            const sf::String button_font_texture_path = Global::Config::ArcadeN_font_path;
+            UIElement::ImageView* background_image;
             
-            sf::Font title_font;
-            sf::Text title_text;
+            UIElement::TextView* menu_title;
+            
+            UIElement::ButtonView* play_button;
+            UIElement::ButtonView* help_button;
+            UIElement::ButtonView* quit_button;
 
-            sf::Font button_font;
-            Button play_btn;
-            Button help_btn;
-            Button quit_btn;
-
-            // Since this is a single image, we can check if it loaded or not during initialization
+            void createBackgroundImage();
+            
             void initializeBackgroundImage();
             void scaleBackgroundImage();
 
+            void createTitle();
             void initializeTitle();
-            
-            void initializeButtons();
-            void positionButtons();
 
-            void processButtonInteractions();
-            bool clickedButton(const Button*, sf::Vector2f);
+            void createButtons();
+            void initializeButtons();
+
+            void registerButtonCallback();
+            void playButtonCallback();
+            void helpButtonCallback();
+            void quitButtonCallback();
+            
+            void destroy();
+            
         public:
             MainMenuUIController();
-
-            void initialize();
-            void update();
-            void render();
+            ~MainMenuUIController();
+            
+            void initialize() override;
+            void update() override;
+            void render() override;
+            void show() override;
         };
     }
 }

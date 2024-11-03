@@ -24,6 +24,8 @@ namespace Global
         static const sf::String torpedoe_texture_path;
         static const sf::String frost_beam_texture_path;
 
+        static const sf::String menu_button_texture_path;
+        
         static const sf::String ArcadeI_font_path;
         static const sf::String ArcadeN_font_path;
 
