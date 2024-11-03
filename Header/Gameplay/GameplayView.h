@@ -12,7 +12,7 @@ namespace Gameplay
         sf::RenderWindow* game_window;
         sf::Texture background_texture;
         sf::Sprite background_sprite;
-
+        
         GameplayController* gameplay_controller;
         UI::UIElement::ImageView* background_image;
         

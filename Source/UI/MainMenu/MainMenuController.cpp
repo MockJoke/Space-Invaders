@@ -2,7 +2,6 @@
 #include "../../Header/Main/GameService.h"
 #include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Graphic/GraphicService.h"
-#include "../../Header/UI/Button.h"
 
 namespace UI
 {
@@ -10,135 +9,153 @@ namespace UI
     {
         MainMenuUIController::MainMenuUIController()
         {
-            game_window = nullptr;
+            createBackgroundImage();
+            createTitle();
+            createButtons();
         }
 
+        MainMenuUIController::~MainMenuUIController()
+        {
+            destroy();
+        }
+        
         void MainMenuUIController::initialize()
         {
-            game_window = Global::ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
             initializeBackgroundImage();
             initializeTitle();
             initializeButtons();
+            registerButtonCallback();
+        }
+
+        void MainMenuUIController::createBackgroundImage()
+        {
+            background_image = new UIElement::ImageView();
+        }
+
+        void MainMenuUIController::createTitle()
+        {
+            menu_title = new UIElement::TextView();
+        }
+        
+        void MainMenuUIController::createButtons()
+        {
+            play_button = new UIElement::ButtonView();
+            help_button = new UIElement::ButtonView();
+            quit_button = new UIElement::ButtonView();
         }
 
         void MainMenuUIController::initializeBackgroundImage()
         {
             // Check if a texture is loaded properly
-            if (background_texture.loadFromFile(background_texture_path))
-            {
-                // If it did then set the bg image & scale it
-                background_sprite.setTexture(background_texture);
-                scaleBackgroundImage();
-            }
+            // if (background_texture.loadFromFile(background_texture_path))
+            // {
+            //     // If it did then set the bg image & scale it
+            //     background_sprite.setTexture(background_texture);
+            //     scaleBackgroundImage();
+            // }
+
+            sf::RenderWindow* game_window = Global::ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+
+            background_image->initialize(Global::Config::background_texture_path, game_window->getSize().x, game_window->getSize().y, sf::Vector2f(0, 0));
+            background_image->setImageAlpha(background_alpha);
         }
 
-        void MainMenuUIController::scaleBackgroundImage()
-        {
-            // Scaling bg image based on the size of the game window 
-            background_sprite.setScale(
-                static_cast<float>(game_window->getSize().x) / background_sprite.getTexture()->getSize().x,
-                static_cast<float>(game_window->getSize().y) / background_sprite.getTexture()->getSize().y
-            );
-        }
+        // void MainMenuUIController::scaleBackgroundImage()
+        // {
+        //     // Scaling bg image based on the size of the game window 
+        //     background_sprite.setScale(
+        //         static_cast<float>(game_window->getSize().x) / background_sprite.getTexture()->getSize().x,
+        //         static_cast<float>(game_window->getSize().y) / background_sprite.getTexture()->getSize().y
+        //     );
+        // }
 
         void MainMenuUIController::initializeTitle()
         {
-            if (title_font.loadFromFile(title_font_texture_path))
-            {
-                title_text.setFont(title_font);
-                title_text.setString("SPACE INVADERS");
-                title_text.setFillColor(sf::Color::White);
-                title_text.setCharacterSize(80);
-                title_text.setPosition(static_cast<float>(game_window->getSize().x) / 2.f - title_text.getGlobalBounds().width/2.f, 150.f);
-            }
+            menu_title->initialize("SPACE INVADERS", sf::Vector2f(0, 150.f), UIElement::FontType::ARCADE_I, 80, sf::Color::White);
+            menu_title->setTextCentreAligned();
         }
 
         void MainMenuUIController::initializeButtons()
         {
-            if (button_font.loadFromFile(button_font_texture_path))
-            {
-                play_btn.Create("PLAY", button_font, sf::Color::White, 40);
-                help_btn.Create("HELP", button_font, sf::Color::White, 40);
-                quit_btn.Create("QUIT", button_font, sf::Color::White, 40);
-                
-                positionButtons();
-            }
+            UIElement::ButtonConfig play_button_config("Play", Global::Config::menu_button_texture_path);
+            play_button_config.position = {0.0f, play_btn_top_offset};
+
+            play_button->initialize(play_button_config);
+
+            UIElement::ButtonConfig help_button_config("Help", Global::Config::menu_button_texture_path);
+            help_button_config.position = {0.0f, help_btn_top_offset};
+
+            help_button->initialize(help_button_config);
+
+            UIElement::ButtonConfig quit_button_config("Quit", Global::Config::menu_button_texture_path);
+            quit_button_config.position = {0.0f, quit_btn_top_offset};
+            quit_button->initialize(quit_button_config);
+            
+            play_button->setCentreAligned();
+            help_button->setCentreAligned();
+            quit_button->setCentreAligned();
+
+            play_button->setImageAlpha(0);
+            help_button->setImageAlpha(0);
+            quit_button->setImageAlpha(0);
         }
 
-        void MainMenuUIController::positionButtons()
+        void MainMenuUIController::registerButtonCallback()
         {
-            play_btn.SetPosition(static_cast<float>(game_window->getSize().x) / 2.f - play_btn.getBounds().x / 2.f, 500.f);
-            help_btn.SetPosition(static_cast<float>(game_window->getSize().x) / 2.f - help_btn.getBounds().x / 2.f, 700.f);
-            quit_btn.SetPosition(static_cast<float>(game_window->getSize().x) / 2.f - quit_btn.getBounds().x / 2.f, 900.f);
+            play_button->registerCallbackFunction(std::bind(&MainMenuUIController::playButtonCallback, this));
+            help_button->registerCallbackFunction(std::bind(&MainMenuUIController::helpButtonCallback, this));
+            quit_button->registerCallbackFunction(std::bind(&MainMenuUIController::quitButtonCallback, this));
+        }
+
+        void MainMenuUIController::playButtonCallback()
+        {
+            Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::BUTTON_CLICK);
+            Main::GameService::setGameState(Main::GameState::GAMEPLAY);
+        }
+
+        void MainMenuUIController::helpButtonCallback()
+        {
+            Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::BUTTON_CLICK);
+            Main::GameService::setGameState(Main::GameState::HELP);
+        }
+
+        void MainMenuUIController::quitButtonCallback()
+        {
+            Global::ServiceLocator::getInstance()->getGraphicService()->getGameWindow()->close();
         }
         
         void MainMenuUIController::update()
         {
-            processButtonInteractions();
+            background_image->update();
+            menu_title->update();
+            play_button->update();
+            help_button->update();
+            quit_button->update();
         }
 
         void MainMenuUIController::render()
         {
-            game_window->draw(background_sprite);
-
-            game_window->draw(title_text);
-            
-            play_btn.Render(game_window);
-            help_btn.Render(game_window);
-            quit_btn.Render(game_window);
-        }
-
-        /*
-            First we get the location of the mouse on our screen,
-            If we register a click while the mouse is above a button, 
-            then we do something based on which button it is
-            we will call processButtonInteractions() on update
-        */
-        void MainMenuUIController::processButtonInteractions()
-        {
-            const sf::Vector2f mouse_position = sf::Vector2f(sf::Mouse::getPosition(*game_window));
-
-            play_btn.CheckForMouseHover(mouse_position);
-            help_btn.CheckForMouseHover(mouse_position);
-            quit_btn.CheckForMouseHover(mouse_position);
-            
-            if (clickedButton(&play_btn, mouse_position))
-            {
-                Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::BUTTON_CLICK);
-                Global::ServiceLocator::getInstance()->getSoundService()->playBackgroundMusic();
-                Main::GameService::setGameState(Main::GameState::GAMEPLAY);
-            }
-
-            if (clickedButton(&help_btn, mouse_position))
-            {
-                printf("Clicked Help Button \n");
-            }
-
-            if (clickedButton(&quit_btn, mouse_position))
-            {
-                game_window->close();
-            }
-        }
-				
-        /*
-        This checks if the use left clicked on a sprite & then returns
-        true if the click happened while the mouse was overlapping with the
-        button
-        */
-        bool MainMenuUIController::clickedButton(const Button* button, sf::Vector2f mouse_position)
-        {
-            const Event::EventService* event_service = Global::ServiceLocator::getInstance()->getEventService();
-            return event_service->pressedLeftMouseButton() && button->IsMousePointerOverlapping(mouse_position);
+            background_image->render();
+            menu_title->render();
+            play_button->render();
+            help_button->render();
+            quit_button->render();
         }
 
         void MainMenuUIController::show()
         {
-            
+            background_image->show();
+            play_button->show();
+            help_button->show();
+            quit_button->show();
         }
 
         void MainMenuUIController::destroy()
         {
-            
+            delete(play_button);
+            delete(help_button);
+            delete(quit_button);
+            delete(background_image);
         }
     }
 }

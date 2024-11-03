@@ -22,6 +22,7 @@ namespace UI
 
     void UIService::initialize()
     {
+        UIElement::TextView::initializeTextView();
         initializeControllers();
     }
 
