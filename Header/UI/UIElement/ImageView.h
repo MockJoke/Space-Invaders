@@ -24,8 +24,11 @@ namespace UI
             virtual void setPosition(sf::Vector2f position);
             virtual void setRotation(float rotation_angle);
             virtual void setOriginAtCentre();
+            virtual void setColor(sf::Color color);
             virtual void setImageAlpha(float alpha);
             virtual void setCentreAligned();
+
+            const virtual sf::Sprite& getSprite();
         };
     }
 }

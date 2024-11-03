@@ -62,11 +62,16 @@ namespace UI
             image_sprite.setOrigin(image_sprite.getLocalBounds().width / 2, image_sprite.getLocalBounds().height / 2);
         }
 
+        void ImageView::setColor(sf::Color color)
+        {
+            image_sprite.setColor(color);
+        }
+
         void ImageView::setImageAlpha(float alpha)
         {
             sf::Color color = image_sprite.getColor();
             color.a = alpha;
-            image_sprite.setColor(color);
+            setColor(color);
         }
 
         void ImageView::setCentreAligned()
@@ -75,6 +80,11 @@ namespace UI
             float y_position = image_sprite.getGlobalBounds().getPosition().y;
 
             image_sprite.setPosition(x_position, y_position);
+        }
+
+        const sf::Sprite& ImageView::getSprite()
+        {
+            return image_sprite;
         }
     }
 }
