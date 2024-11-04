@@ -2,7 +2,7 @@
 
 namespace Player
 {
-    PlayerModel::PlayerModel() { }
+    PlayerModel::PlayerModel() { entity_type = Entity::EntityType::PLAYER; }
 
     PlayerModel::~PlayerModel() { }
 
@@ -27,5 +27,15 @@ namespace Player
     void PlayerModel::setPlayerState(PlayerState state)
     {
         player_state = state;
-    }    
+    }
+
+    Entity::EntityType PlayerModel::getEntityType() const
+    {
+        return entity_type;
+    }
+
+    void PlayerModel::setEntityType(Entity::EntityType type)
+    {
+        entity_type = type;
+    }
 }

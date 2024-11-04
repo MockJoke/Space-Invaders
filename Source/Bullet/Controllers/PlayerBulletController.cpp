@@ -5,7 +5,7 @@ namespace Bullet
 {
     namespace Controller
     {
-        PlayerBulletController::PlayerBulletController(BulletType type) : BulletController(type) { }
+        PlayerBulletController::PlayerBulletController(BulletType bullet_type, Entity::EntityType entity_type) : BulletController(bullet_type, entity_type) { }
 
         PlayerBulletController::~PlayerBulletController() { }
 

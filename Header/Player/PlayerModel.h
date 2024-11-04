@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
+#include "../../header/Entity/EntityConfig.h"
 
 namespace Player
 {
@@ -16,6 +17,7 @@ namespace Player
         sf::Vector2f player_position;
         PlayerState player_state;
         int player_score;
+        Entity::EntityType entity_type;
 
     public:
         const sf::Vector2f left_most_position = sf::Vector2f(50.0f, 950.f);
@@ -36,5 +38,8 @@ namespace Player
 
         PlayerState getPlayerState() const;
         void setPlayerState(PlayerState state);
+
+        Entity::EntityType getEntityType() const;
+        void setEntityType(Entity::EntityType type);
     };    
 }

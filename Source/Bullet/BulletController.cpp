@@ -5,10 +5,10 @@
 
 namespace Bullet
 {
-    BulletController::BulletController(BulletType type)
+    BulletController::BulletController(BulletType bullet_type, Entity::EntityType entity_type)
     {
         bullet_view = new BulletView();
-        bullet_model = new BulletModel(type);
+        bullet_model = new BulletModel(bullet_type, entity_type);
     }
 
     BulletController::~BulletController()

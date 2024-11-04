@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "SFML/System/Vector2.hpp"
+#include "../../header/Entity/EntityConfig.h"
 #include "../../Header/Projectile/IProjectile.h"
 
 namespace Bullet
@@ -14,7 +15,7 @@ namespace Bullet
     private:
         std::vector<Projectile::IProjectile*> bullet_list;
 
-        BulletController* createBullet(BulletType bullet_type);
+        BulletController* createBullet(BulletType bullet_type, Entity::EntityType entity_type);
         void destroy();
 
     public:
@@ -25,7 +26,7 @@ namespace Bullet
         void update();
         void render();
 
-        BulletController* spawnBullet(BulletType bullet_type, sf::Vector2f position, MovementDirection direction);
+        BulletController* spawnBullet(BulletType bullet_type, Entity::EntityType entity_type, sf::Vector2f position, MovementDirection direction);
         void destroyBullet(BulletController* bullet_controller);
     };
 }

@@ -66,4 +66,14 @@ namespace Enemy
     {
         movement_direction = direction;
     }
+
+    Entity::EntityType EnemyModel::getEntityType() const
+    {
+        return entity_type;
+    }
+
+    void EnemyModel::setEntityType(Entity::EntityType type)
+    {
+        entity_type = type;
+    }
 }
