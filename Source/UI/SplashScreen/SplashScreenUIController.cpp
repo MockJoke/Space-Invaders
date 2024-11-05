@@ -51,7 +51,7 @@ namespace UI
             Main::GameService::setGameState(Main::GameState::MAIN_MENU);
         }
 
-        sf::Vector2f SplashScreenUIController::getLogoPosition()
+        sf::Vector2f SplashScreenUIController::getLogoPosition() const
         {
             sf::RenderWindow* game_window = Global::ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
 
