@@ -50,7 +50,7 @@ namespace Powerup
             return Config::shield_texture_path;
 
         case PowerupType::TRIPPLE_LASER:
-            return Config::tripple_laser_texture_path;
+            return Config::triple_laser_texture_path;
 
         case PowerupType::RAPID_FIRE:
             return Config::rapid_fire_texture_path;

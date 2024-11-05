@@ -58,7 +58,7 @@ namespace UI
 
         void GameplayUIController::drawPlayerLives() const
         {
-            sf::RenderWindow* game_window = Global::ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
+            // sf::RenderWindow* game_window = Global::ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
 
             for (int i = 0; i < Player::PlayerModel::player_lives; i++)
             {

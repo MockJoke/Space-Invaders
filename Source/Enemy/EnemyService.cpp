@@ -60,7 +60,7 @@ namespace Enemy
         switch (enemy_type)
         {
         case EnemyType::ZAPPER:
-            return new Controller::ZapperController (EnemyType::ZAPPER);
+            return new Controller::ZapperController(EnemyType::ZAPPER);
 
         case EnemyType::THUNDER_SNAKE:
             return new Controller::ThunderSnakeController(EnemyType::THUNDER_SNAKE);

@@ -76,11 +76,13 @@ namespace Bullet
     {
         for (int i = 0; i < flagged_bullet_list.size(); i++)
         {
-            if (!isValidBullet(i, flagged_bullet_list)) continue;
+            if (!isValidBullet(i, flagged_bullet_list))
+                continue;
 
             Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<Collision::ICollider*>(flagged_bullet_list[i]));
             delete (flagged_bullet_list[i]);
         }
+        
         flagged_bullet_list.clear();
     }
 

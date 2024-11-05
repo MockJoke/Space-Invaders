@@ -11,7 +11,7 @@ namespace UI
 		class GameplayUIController : public Interface::IUIController
 		{
 		private:
-			const float font_size = 40.f;
+			const int font_size = 30;
 
 			const float text_y_position = 15.f;
 			const float enemies_killed_text_x_position = 60.f;
@@ -20,8 +20,8 @@ namespace UI
 			const float player_lives_x_offset = 1850.f;
 			const float player_lives_spacing = 60.f;
 
-			const float player_sprite_width = 30.f;
-			const float player_sprite_height = 30.f;
+			const float player_sprite_width = 35.f;
+			const float player_sprite_height = 35.f;
 
 			const sf::Color text_color = sf::Color::White;
 

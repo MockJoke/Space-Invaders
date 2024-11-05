@@ -1,5 +1,4 @@
 #include "../../header/Powerup/Controllers/TrippleLaserController.h"
-
 #include "../../../Header/Global/ServiceLocator.h"
 
 namespace Powerup
