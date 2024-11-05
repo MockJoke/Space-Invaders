@@ -15,12 +15,8 @@ namespace Event
     class EventService
     {
     private:
-        sf::Event game_event;   // event var
-        sf::RenderWindow* game_window;  // ptr to our game window
-
-        bool isGameWindowOpen() const; 
-        bool gameWindowWasClosed() const; // for the condition we already had - the title bar cross
-        bool hasQuitGame() const; // for our new 'ESC' condition
+        sf::Event game_event;
+        sf::RenderWindow* game_window;
 
         ButtonState left_mouse_button_state;
         ButtonState right_mouse_button_state;
@@ -28,6 +24,10 @@ namespace Event
         ButtonState right_arrow_button_state;
         ButtonState A_button_state;
         ButtonState D_button_state;
+
+        bool isGameWindowOpen() const; 
+        bool gameWindowWasClosed() const;
+        bool hasQuitGame() const;
 
         void updateMouseButtonsState(ButtonState& current_button_state, sf::Mouse::Button mouse_button);
         void updateKeyboardButtonsState(ButtonState& current_button_state, sf::Keyboard::Key keyboard_button);
@@ -38,13 +38,15 @@ namespace Event
 
         void initialize();
         void update();
-        void processEvents();   // while window is open we will check for events
-        bool pressedEscapeKey() const;
+        void processEvents();
+        
         bool isKeyboardEvent() const;
+        bool pressedEscapeKey() const;
         bool pressedLeftKey() const;
         bool pressedRightKey() const;
         bool pressedAKey() const;
         bool pressedDKey() const;
+        
         bool pressedLeftMouseButton() const;
         bool pressedRightMouseButton() const;
     };

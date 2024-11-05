@@ -13,10 +13,7 @@ namespace Powerup
         createUIElements();
     }
 
-    PowerupView::~PowerupView()
-    {
-        destroy();
-    }
+    PowerupView::~PowerupView() { destroy(); }
 
     void PowerupView::initialize(PowerupController* controller)
     {
@@ -58,6 +55,11 @@ namespace Powerup
         case PowerupType::RAPID_FIRE:
             return Config::rapid_fire_texture_path;
         }
+    }
+
+    const sf::Sprite& PowerupView::getPowerupSprite() const
+    { 
+        return powerup_image->getSprite();
     }
 
     void PowerupView::destroy() const

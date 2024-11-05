@@ -7,15 +7,9 @@
 
 namespace Bullet
 {
-    BulletView::BulletView()
-    {
-        createUIElements();
-    }
+    BulletView::BulletView() { createUIElements(); }
 
-    BulletView::~BulletView()
-    {
-        destroy();
-    }
+    BulletView::~BulletView() { destroy(); }
 
     void BulletView::initialize(BulletController* controller)
     {
@@ -60,6 +54,11 @@ namespace Bullet
         case BulletType::TORPEDO:
             return Global::Config::torpedoe_texture_path;
         }
+    }
+
+    const sf::Sprite& BulletView::getBulletSprite() const
+    {
+        return bullet_image->getSprite();
     }
 
     void BulletView::destroy() const

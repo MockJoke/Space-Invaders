@@ -6,15 +6,9 @@ namespace Element
 {
     namespace Bunker
     {
-        BunkerView::BunkerView()
-        {
-            createUIElements();
-        }
+        BunkerView::BunkerView() { createUIElements(); }
 
-        BunkerView::~BunkerView()
-        {
-            destroy();
-        }
+        BunkerView::~BunkerView() { destroy(); }
 
         void BunkerView::initialize(BunkerController* controller)
         {
@@ -40,6 +34,11 @@ namespace Element
         void BunkerView::render() const
         {
             bunker_image->render();
+        }
+
+        const sf::Sprite& BunkerView::getBunkerSprite() const
+        {
+            return bunker_image->getSprite();
         }
 
         void BunkerView::destroy() const

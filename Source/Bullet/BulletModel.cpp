@@ -36,14 +36,19 @@ namespace Bullet
         bullet_type = type;
     }
 
-    MovementDirection BulletModel::getMovementDirection() const
-    {
-        return movement_direction;
-    }
-
     Entity::EntityType BulletModel::getEntityType() const
     {
         return entity_type;
+    }
+
+    void BulletModel::setEntityType(Entity::EntityType type)
+    {
+        entity_type = type;
+    }
+
+    MovementDirection BulletModel::getMovementDirection() const
+    {
+        return movement_direction;
     }
 
     void BulletModel::setMovementDirection(MovementDirection direction)

@@ -7,6 +7,7 @@ namespace Main
     enum class GameState
     {
         BOOT,
+        SPLASH_SCREEN,
         MAIN_MENU,
         HELP,
         GAMEPLAY,
@@ -22,21 +23,22 @@ namespace Main
         sf::RenderWindow* game_window;
     
         void initialize();
-        void initializeVariables();// Handles game initialization
-        void destroy();			// Handles cleanup tasks
+        void initializeVariables();
+
+        void showSplashScreen();
+        
+        void destroy();
 
     public:
-        GameService();			// Constructor for initializing the GameService object
-        ~GameService();	        // Destructor for cleaning up resources upon object deletion
+        GameService();
+        ~GameService();
 
-        void ignite();			// Initiates the game
-        void update();			// Updates the game logic and game state
-        void render();			// Renders each frame of the game
-        bool isRunning() const;		// Checks if the game is currently running
+        void ignite();
+        void update();
+        void render();
+        bool isRunning() const;
 
         static void setGameState(GameState new_state);
         static GameState getGameState();
-
-        void showMainMenu();
     };    
 }

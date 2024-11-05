@@ -9,13 +9,14 @@
 #include "../Elements/ElementService.h"
 #include "../Sound/SoundService.h"
 #include "../Bullet/BulletService.h"
+#include "../Collision/CollisionService.h"
 #include "../Powerup/PowerupService.h"
 
 namespace Global
 {
     /* Class Summary
-    This class manages access to various services in the application
-*/
+        This class manages access to various services in the application
+    */
     class ServiceLocator
     {
     private:
@@ -30,26 +31,20 @@ namespace Global
         Sound::SoundService* sound_service;
         Bullet::BulletService* bullet_service;
         Powerup::PowerupService* powerup_service;
-
-        // Private Constructor and Destructor:
-    
-        // Constructor for initializing the ServiceLocator
+        Collision::CollisionService* collision_service;
+        
         ServiceLocator(); 
-    
-        // Destructor for cleaning up resources upon object deletion
         ~ServiceLocator(); 	
 
-        // Private Methods:
-        void createServices(); 			// Creates instances of all services
-        void clearAllServices(); 		//	Deletes and deallocates memory for all services
+        void createServices();
+        void clearAllServices();
 
     public:
-        // Public Methods:
-        static ServiceLocator* getInstance();  // Provides a method to access the unique ServiceLocator instance (object)
+        static ServiceLocator* getInstance();
 
-        void initialize() const; 			//	Initializes the ServiceLocator
-        void update() const; 				//	Updates all services
-        void render() const; 				//	Renders using the services
+        void initialize() const;
+        void update() const;
+        void render() const;
 
         // Methods to Get Specific Services: 
         Graphic::GraphicService* getGraphicService() const;
@@ -63,5 +58,6 @@ namespace Global
         Sound::SoundService* getSoundService() const;
         Bullet::BulletService* getBulletService() const;
         Powerup::PowerupService* getPowerupService() const;
+        Collision::CollisionService* getCollisionService() const;
     };
 }

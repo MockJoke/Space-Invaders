@@ -1,4 +1,6 @@
 ﻿#include "../../Header/Player/PlayerService.h"
+
+#include "../../Header/Global/ServiceLocator.h"
 #include "../../Header/Player/PlayerController.h"
 
 namespace Player
@@ -10,12 +12,14 @@ namespace Player
 
     PlayerService::~PlayerService()
     {
-        delete (player_controller);
+        Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<Collision::ICollider*>(player_controller));
+        delete(player_controller);
     }
 
     void PlayerService::initialize()
     {
         player_controller->initialize();
+        Global::ServiceLocator::getInstance()->getCollisionService()->addCollider(dynamic_cast<Collision::ICollider*>(player_controller));
     }
 
     void PlayerService::update()
@@ -26,5 +30,30 @@ namespace Player
     void PlayerService::render()
     {
         player_controller->render();
-    }    
+    }
+
+    void PlayerService::reset()
+    {
+        player_controller->reset();
+    }
+    
+    void PlayerService::increaseEnemiesKilled(int val) const
+    {
+        player_controller->increaseEnemiesKilled(val);
+    }
+	
+    void PlayerService::enableShield() const
+    {
+        player_controller->enableShield();
+    }
+
+    void PlayerService::enableRapidFire() const
+    {
+        player_controller->enableRapidFire();
+    }
+
+    void PlayerService::enableTripleLaser() const
+    {
+        player_controller->enableTripleLaser();
+    }
 }

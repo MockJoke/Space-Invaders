@@ -1,21 +1,13 @@
 ﻿#include "../../Header/Player/PlayerController.h"
 #include "../../Header/Player/PlayerView.h"
-
-#include <iostream>
-
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Player/PlayerModel.h"
 
 namespace Player
 {
-    PlayerView::PlayerView()
-    {
-        createUIElements();
-    }
+    PlayerView::PlayerView() { createUIElements(); }
 
-    PlayerView::~PlayerView()
-    {
-        destroy();
-    }
+    PlayerView::~PlayerView() { destroy(); }
 
     void PlayerView::initialize(PlayerController* controller)
     {
@@ -47,5 +39,22 @@ namespace Player
     void PlayerView::destroy() const
     {
         delete(player_image);
-    }   
+    }
+
+    void PlayerView::setPlayerHighlight(bool b_highlight) const
+    {
+        if (b_highlight)
+        {
+            player_image->setImageAlpha(PlayerModel::invincible_player_alpha);
+        }
+        else
+        {
+            player_image->setImageAlpha(255);
+        }
+    }
+
+    const sf::Sprite& PlayerView::getPlayerSprite() const
+    {
+        return player_image->getSprite();
+    }
 }

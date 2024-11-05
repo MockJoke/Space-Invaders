@@ -2,6 +2,8 @@
 #include "../../Header/Bullet/BulletModel.h"
 #include "../../Header/Bullet/BulletView.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../header/Player/PlayerController.h"
+#include "../../header/Enemy/EnemyController.h"
 
 namespace Bullet
 {
@@ -85,5 +87,63 @@ namespace Bullet
     BulletType BulletController::getBulletType() const
     {
         return bullet_model->getBulletType();
+    }
+
+    Entity::EntityType BulletController::getEntityType() const
+    {
+        return bullet_model->getEntityType();
+    }
+
+    void BulletController::processBulletCollision(ICollider* other_collider)
+    {
+        BulletController* bullet_controller = dynamic_cast<BulletController*>(other_collider);
+
+        if (bullet_controller)
+        {
+            Global::ServiceLocator::getInstance()->getBulletService()->destroyBullet(this);
+        }
+    }
+
+    void BulletController::processEnemyCollision(ICollider* other_collider)
+    {
+        Enemy::EnemyController* enemy_controller = dynamic_cast<Enemy::EnemyController*>(other_collider);
+
+        if (enemy_controller && getEntityType() != Entity::EntityType::ENEMY)
+        {
+            Global::ServiceLocator::getInstance()->getBulletService()->destroyBullet(this);
+        }
+    }
+
+    void BulletController::processPlayerCollision(ICollider* other_collider)
+    {
+        Player::PlayerController* player_controller = dynamic_cast<Player::PlayerController*>(other_collider);
+
+        if (player_controller && getEntityType() != Entity::EntityType::PLAYER)
+        {
+            Global::ServiceLocator::getInstance()->getBulletService()->destroyBullet(this);
+        }
+    }
+
+    void BulletController::processBunkerCollision(ICollider* other_collider)
+    {
+        Element::Bunker::BunkerController* bunker_controller = dynamic_cast<Element::Bunker::BunkerController*>(other_collider);
+
+        if (bunker_controller)
+        {
+            Global::ServiceLocator::getInstance()->getBulletService()->destroyBullet(this);
+        }
+    }
+
+    const sf::Sprite& BulletController::getColliderSprite()
+    {
+        return bullet_view->getBulletSprite();
+    }
+
+    void BulletController::onCollision(ICollider* other_collider)
+    {
+        processPlayerCollision(other_collider);
+        processEnemyCollision(other_collider);
+        processBunkerCollision(other_collider);
+        processBulletCollision(other_collider);
     }
 }

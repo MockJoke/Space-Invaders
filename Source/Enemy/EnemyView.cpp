@@ -4,15 +4,9 @@
 
 namespace Enemy
 {
-    EnemyView::EnemyView()
-    {
-        createUIElements();
-    }
+    EnemyView::EnemyView() { createUIElements(); }
 
-    EnemyView::~EnemyView()
-    {
-        destroy();
-    }
+    EnemyView::~EnemyView() { destroy(); }
 
     void EnemyView::initialize(EnemyController* controller)
     {
@@ -57,6 +51,11 @@ namespace Enemy
         case EnemyType::UFO:
             return Global::Config::ufo_texture_path;
         }
+    }
+
+    const sf::Sprite& EnemyView::getEnemySprite() const
+    {
+        return enemy_image->getSprite();
     }
 
     void EnemyView::destroy() const

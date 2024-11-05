@@ -3,6 +3,8 @@
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Global/ServiceLocator.h"
+#include "../../header/Player/PlayerController.h"
+#include "../../header/Bullet/BulletController.h"
 
 namespace Enemy
 {
@@ -14,8 +16,8 @@ namespace Enemy
 
     EnemyController::~EnemyController()
     {
-        delete (enemy_view);
-        delete (enemy_model);
+        delete(enemy_view);
+        delete(enemy_model);
     }
 
     void EnemyController::initialize()
@@ -57,16 +59,16 @@ namespace Enemy
 
     sf::Vector2f EnemyController::getRandomInitialPosition() const
     {
-        // Calculate the distance between the leftmost and rightmost positions of the enemy.
+        // Calculate the distance between the leftmost and rightmost positions of the enemy
         float x_offset_distance = (std::rand() % static_cast<int>(enemy_model->right_most_position.x - enemy_model->left_most_position.x));
     
-        // Calculate the x position by adding the x offset distance to the leftmost position.
+        // Calculate the x position by adding the x offset distance to the leftmost position
         float x_position = enemy_model->left_most_position.x + x_offset_distance; 
     
-        // The y position remains the same.
+        // The y position remains the same
         float y_position = enemy_model->left_most_position.y;
 
-        // Return the calculated position as a 2D vector.
+        // Return the calculated position as a 2D vector
         return sf::Vector2f(x_position, y_position);
     }
 
@@ -96,5 +98,35 @@ namespace Enemy
     sf::Vector2f EnemyController::getEnemyPosition() const
     {
         return enemy_model->getEnemyPosition();
+    }
+
+    const sf::Sprite& EnemyController::getColliderSprite()
+    {
+        return enemy_view->getEnemySprite();
+    }
+
+    void EnemyController::onCollision(ICollider* other_collider)
+    {
+        Bullet::BulletController* bullet_controller = dynamic_cast<Bullet::BulletController*>(other_collider);
+
+        if (bullet_controller && bullet_controller->getEntityType() != Entity::EntityType::ENEMY)
+        {
+            destroy();
+            return;
+        }
+
+        Player::PlayerController* player_controller = dynamic_cast<Player::PlayerController*>(other_collider);
+
+        if (player_controller)
+        {
+            destroy();
+        }
+    }
+
+    void EnemyController::destroy()
+    {
+        Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::EXPLOSION);
+        Global::ServiceLocator::getInstance()->getPlayerService()->increaseEnemiesKilled(1);
+        Global::ServiceLocator::getInstance()->getEnemyService()->destroyEnemy(this);
     }
 }

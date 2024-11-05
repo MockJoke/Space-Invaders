@@ -13,7 +13,7 @@ namespace Enemy
         std::srand(static_cast<unsigned>(std::time(nullptr)));
     }
 
-    EnemyService::~EnemyService() { destroy();}
+    EnemyService::~EnemyService() { destroy(); }
 
     void EnemyService::initialize()
     {
@@ -25,14 +25,20 @@ namespace Enemy
         updateSpawnTimer();
         processEnemySpawn();
         
-        for (int i = 0; i < enemy_list.size(); i++)
-            enemy_list[i]->update();
+        for (EnemyController* enemy : enemy_list)
+        {
+            enemy->update();
+        }
+
+        destroyFlaggedEnemies();
     }
 
     void EnemyService::render() const
     {
-        for (int i = 0; i < enemy_list.size(); i++)
-            enemy_list[i]->render();
+        for (EnemyController* enemy : enemy_list)
+        {
+            enemy->render();
+        }
     }
 
     void EnemyService::updateSpawnTimer()
@@ -78,21 +84,34 @@ namespace Enemy
         EnemyController* enemy_controller = createEnemy(getRandomEnemyType());
         
         enemy_controller->initialize();
+        Global::ServiceLocator::getInstance()->getCollisionService()->addCollider(dynamic_cast<Collision::ICollider*>(enemy_controller));
+        
         enemy_list.push_back(enemy_controller);
         
         return enemy_controller;
     }
 
+    void EnemyService::reset()
+    {
+        destroy();
+        spawn_timer = 0.0f;
+    }
+
+    void EnemyService::destroyFlaggedEnemies()
+    {
+        for (int i = 0; i < flagged_enemy_list.size(); i++)
+        {
+            Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<Collision::ICollider*>(flagged_enemy_list[i]));
+            delete (flagged_enemy_list[i]);
+        }
+        flagged_enemy_list.clear();
+    }
+
     void EnemyService::destroyEnemy(EnemyController* enemy_controller)
     {
-        // Erase the enemy_controller object from the enemy_list vector
-        // std::remove rearranges the elements in the vector so that all elements 
-        // that are equal to enemy_controller are moved to the end of the vector,
-        // then it returns an iterator pointing to the start of the removed elements.
-        // The erase function then removes those elements from the vector.
+        dynamic_cast<Collision::ICollider*>(enemy_controller)->disableCollision();
+        flagged_enemy_list.push_back(enemy_controller);
         enemy_list.erase(std::remove(enemy_list.begin(), enemy_list.end(), enemy_controller), enemy_list.end());
-    
-        delete(enemy_controller);
     }
 	
     void EnemyService::destroy() const

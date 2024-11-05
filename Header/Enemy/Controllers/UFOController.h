@@ -13,14 +13,19 @@ namespace Enemy
             void moveLeft();
             void moveRight();
 
-            void fireBullet() override;
             Powerup::PowerupType getRandomPowerupType();
+
+            void fireBullet() override;
+
+            void destroy() override;
 
         public:
             UFOController(EnemyType type);
             ~UFOController();
 
             void initialize() override;
+
+            void onCollision(ICollider* other_collider) override;
         };
     }
 }

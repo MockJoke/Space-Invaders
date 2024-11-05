@@ -18,9 +18,6 @@ namespace Element
             BunkerController* bunker_controller;
             UI::UIElement::ImageView* bunker_image;
 
-            sf::Texture bunker_texture;
-            sf::Sprite bunker_sprite;
-
             void createUIElements();
             void initializeImage() const;
 
@@ -33,6 +30,8 @@ namespace Element
             void initialize(BunkerController* controller);
             void update() const;
             void render() const;
+
+            const sf::Sprite& getBunkerSprite() const;
         };
     }
 }

@@ -13,10 +13,6 @@ namespace Powerup
         const float powerup_sprite_width = 30.f;
         const float powerup_sprite_height = 30.f;
 
-        sf::RenderWindow* game_window;
-        sf::Texture powerup_texture;
-        sf::Sprite powerup_sprite;
-
         PowerupController* powerup_controller;
         UI::UIElement::ImageView* powerup_image;
 
@@ -33,5 +29,7 @@ namespace Powerup
         void initialize(PowerupController* controller);
         void update() const;
         void render() const;
+
+        const sf::Sprite& getPowerupSprite() const;
     };
 }

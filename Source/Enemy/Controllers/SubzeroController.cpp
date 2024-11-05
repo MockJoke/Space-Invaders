@@ -14,7 +14,9 @@ namespace Enemy
         {
             EnemyController::initialize();
             enemy_model->setMovementDirection(MovementDirection::DOWN);
+
             rate_of_fire = subzero_rate_of_fire;
+            // vertical_movement_speed = subzero_vertical_movement_speed;
         }
 
         void SubzeroController::move()
@@ -37,9 +39,16 @@ namespace Enemy
 
         void SubzeroController::fireBullet()
         {
-            Global::ServiceLocator::getInstance()->getBulletService()->spawnBullet(Bullet::BulletType::FROST_BULLET,
-                enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
-                Bullet::MovementDirection::DOWN);
+            Global::ServiceLocator::getInstance()->getBulletService()->
+                                                   spawnBullet(Bullet::BulletType::FROST_BULLET,
+                                                               enemy_model->getEntityType(),
+                                                               enemy_model->getEnemyPosition() + enemy_model->barrel_position_offset,
+                                                               Bullet::MovementDirection::DOWN);
+        }
+
+        void SubzeroController::destroy()
+        {
+            EnemyController::destroy();
         }
     }
 }
