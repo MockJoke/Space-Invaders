@@ -12,8 +12,8 @@ namespace Element
         class BunkerView
         {
         private:
-            const float bunker_sprite_width = 80.f;
-            const float bunker_sprite_height = 60.f;
+            const float bunker_sprite_width = 100.f;
+            const float bunker_sprite_height = 75.f;
 
             BunkerController* bunker_controller;
             UI::UIElement::ImageView* bunker_image;
