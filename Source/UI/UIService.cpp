@@ -6,6 +6,8 @@ namespace UI
     UIService::UIService()
     {
         main_menu_controller = nullptr;
+        gameplay_ui_controller = nullptr;
+        splash_screen_ui_controller = nullptr;
 
         createControllers();
     }
@@ -13,6 +15,8 @@ namespace UI
     void UIService::createControllers()
     {
         main_menu_controller = new MainMenu::MainMenuUIController();
+        gameplay_ui_controller = new GameplayUI::GameplayUIController();
+        splash_screen_ui_controller = new SplashScreen::SplashScreenUIController();
     }
 
     UIService::~UIService()
@@ -20,7 +24,7 @@ namespace UI
         destroy();
     }
 
-    void UIService::initialize()
+    void UIService::initialize() const
     {
         UIElement::TextView::initializeTextView();
         initializeControllers();
@@ -53,6 +57,8 @@ namespace UI
     void UIService::initializeControllers() const
     {
         main_menu_controller->initialize();
+        gameplay_ui_controller->initialize();
+        splash_screen_ui_controller->initialize();
     }
 
     Interface::IUIController* UIService::getCurrentUIController() const
@@ -62,13 +68,21 @@ namespace UI
         case Main::GameState::MAIN_MENU:
             return main_menu_controller;
 
+        case Main::GameState::SPLASH_SCREEN:
+            return splash_screen_ui_controller;
+
+        case Main::GameState::GAMEPLAY:
+            return gameplay_ui_controller;
+
         default:
             return nullptr;
         }
     }
 
-    void UIService::destroy()
+    void UIService::destroy() const
     {
         delete(main_menu_controller);
+        delete(gameplay_ui_controller);
+        delete(splash_screen_ui_controller);
     }
 }

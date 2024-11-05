@@ -32,21 +32,21 @@ namespace UI
 
             void createBackgroundImage();
             
-            void initializeBackgroundImage();
+            void initializeBackgroundImage() const;
             void scaleBackgroundImage();
 
             void createTitle();
-            void initializeTitle();
+            void initializeTitle() const;
 
             void createButtons();
-            void initializeButtons();
+            void initializeButtons() const;
 
             void registerButtonCallback();
             void playButtonCallback();
             void helpButtonCallback();
             void quitButtonCallback();
             
-            void destroy();
+            void destroy() const;
             
         public:
             MainMenuUIController();
