@@ -11,7 +11,7 @@ namespace Enemy
     class EnemyModel
     {
     private:
-        sf::Vector2f reference_position = sf::Vector2f(50.f, 50.f);
+        sf::Vector2f reference_position = sf::Vector2f(50.f, 75.f);
         sf::Vector2f enemy_position;
 
         Entity::EntityType entity_type;
@@ -20,9 +20,9 @@ namespace Enemy
         MovementDirection movement_direction;
         
     public:
-        const sf::Vector2f left_most_position = sf::Vector2f(50.f, 50.f);
-        const sf::Vector2f right_most_position = sf::Vector2f(1790.f, 50.f);
-        const sf::Vector2f barrel_position_offset = sf::Vector2f(30.f, 50.f);
+        const sf::Vector2f left_most_position = sf::Vector2f(50.f, 75.f);
+        const sf::Vector2f right_most_position = sf::Vector2f(1790.f, 75.f);
+        const sf::Vector2f barrel_position_offset = sf::Vector2f(30.f, 75.f);
         
         EnemyModel(EnemyType type);
         ~EnemyModel();
