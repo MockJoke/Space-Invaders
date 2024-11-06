@@ -13,10 +13,6 @@ namespace Bullet
         const float bullet_sprite_width = 20.f;
         const float bullet_sprite_height = 20.f;
 
-        sf::RenderWindow* game_window;
-        sf::Texture bullet_texture;
-        sf::Sprite bullet_sprite;
-
         BulletController* bullet_controller;
         UI::UIElement::ImageView* bullet_image;
 
@@ -33,5 +29,7 @@ namespace Bullet
         void initialize(BulletController* controller);
         void update() const;
         void render() const;
+
+        const sf::Sprite& getBulletSprite() const;
     };
 }

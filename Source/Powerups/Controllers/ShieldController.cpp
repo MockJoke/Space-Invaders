@@ -1,4 +1,5 @@
 #include "../../header/Powerup/Controllers/ShieldController.h"
+#include "../../../Header/Global/ServiceLocator.h"
 
 namespace Powerup
 {
@@ -8,6 +9,9 @@ namespace Powerup
 
         ShieldController::~ShieldController() {}
 
-        void ShieldController::onCollected() {}
+        void ShieldController::applyPowerup()
+        {
+            Global::ServiceLocator::getInstance()->getPlayerService()->enableShield();
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Bullet
             const float player_bullet_movement_speed = 500.f;
             
         public:
-            PlayerBulletController(BulletType type);
+            PlayerBulletController(BulletType bullet_type, Entity::EntityType entity_type);
             ~PlayerBulletController();
 
             void initialize(sf::Vector2f position, MovementDirection direction) override;

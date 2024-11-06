@@ -44,7 +44,7 @@ namespace UI
             quit_button = new UIElement::ButtonView();
         }
 
-        void MainMenuUIController::initializeBackgroundImage()
+        void MainMenuUIController::initializeBackgroundImage() const
         {
             // Check if a texture is loaded properly
             // if (background_texture.loadFromFile(background_texture_path))
@@ -69,13 +69,13 @@ namespace UI
         //     );
         // }
 
-        void MainMenuUIController::initializeTitle()
+        void MainMenuUIController::initializeTitle() const
         {
             menu_title->initialize("SPACE INVADERS", sf::Vector2f(0, 150.f), UIElement::FontType::ARCADE_I, 80, sf::Color::White);
             menu_title->setTextCentreAligned();
         }
 
-        void MainMenuUIController::initializeButtons()
+        void MainMenuUIController::initializeButtons() const
         {
             UIElement::ButtonConfig play_button_config("Play", Global::Config::menu_button_texture_path);
             play_button_config.position = {0.0f, play_btn_top_offset};
@@ -150,7 +150,7 @@ namespace UI
             quit_button->show();
         }
 
-        void MainMenuUIController::destroy()
+        void MainMenuUIController::destroy() const
         {
             delete(play_button);
             delete(help_button);

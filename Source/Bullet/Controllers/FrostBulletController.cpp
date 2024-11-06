@@ -5,7 +5,7 @@ namespace Bullet
 {
     namespace Controller
     {
-        FrostBulletController::FrostBulletController(BulletType type) : BulletController(type) { }
+        FrostBulletController::FrostBulletController(BulletType bullet_type, Entity::EntityType entity_type) : BulletController(bullet_type, entity_type) { }
 
         FrostBulletController::~FrostBulletController() { }
 

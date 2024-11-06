@@ -2,9 +2,10 @@
 
 namespace Bullet
 {
-    BulletModel::BulletModel(BulletType type)
+    BulletModel::BulletModel(BulletType bullet_type, Entity::EntityType entity_type)
     {
-        bullet_type = type;
+        this->bullet_type = bullet_type;
+        this->entity_type = entity_type;
     }
 
     BulletModel::~BulletModel() { }
@@ -33,6 +34,16 @@ namespace Bullet
     void BulletModel::setBulletType(BulletType type)
     {
         bullet_type = type;
+    }
+
+    Entity::EntityType BulletModel::getEntityType() const
+    {
+        return entity_type;
+    }
+
+    void BulletModel::setEntityType(Entity::EntityType type)
+    {
+        entity_type = type;
     }
 
     MovementDirection BulletModel::getMovementDirection() const

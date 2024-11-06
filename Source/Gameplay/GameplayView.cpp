@@ -8,10 +8,7 @@ namespace Gameplay
         background_image = new UI::UIElement::ImageView();
     }
 
-    GameplayView::~GameplayView()
-    {
-        delete(background_image);
-    }
+    GameplayView::~GameplayView() { delete(background_image); }
 
     void GameplayView::initialize() const
     {
@@ -26,6 +23,8 @@ namespace Gameplay
                                      game_window->getSize().x,
                                      game_window->getSize().y,
                                      sf::Vector2f(0, 0));
+
+        // background_image->setImageAlpha(background_alpha);
     }
 
     void GameplayView::update() const

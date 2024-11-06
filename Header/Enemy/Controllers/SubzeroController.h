@@ -8,6 +8,7 @@ namespace Enemy
         class SubzeroController : public EnemyController
         {
         private:
+            // float subzero_vertical_movement_speed = 100.f;
             float vertical_movement_speed = 100.f;
             const float subzero_rate_of_fire = 2;
             
@@ -15,6 +16,8 @@ namespace Enemy
             void moveDown();
 
             void fireBullet() override;
+
+            void destroy() override;
             
         public:
             SubzeroController(EnemyType type);

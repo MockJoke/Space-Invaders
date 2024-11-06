@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
+#include "../../header/Entity/EntityConfig.h"
 
 namespace Enemy
 {
@@ -10,22 +11,18 @@ namespace Enemy
     class EnemyModel
     {
     private:
-        sf::Vector2f reference_position = sf::Vector2f(50.f, 50.f);
+        sf::Vector2f reference_position = sf::Vector2f(50.f, 75.f);
         sf::Vector2f enemy_position;
 
+        Entity::EntityType entity_type;
         EnemyType enemy_type;
         EnemyState enemy_state;
         MovementDirection movement_direction;
         
     public:
-        const sf::Vector2f left_most_position = sf::Vector2f(50.f, 50.f);
-        const sf::Vector2f right_most_position = sf::Vector2f(1790.f, 50.f);
-        const sf::Vector2f barrel_position_offset = sf::Vector2f(30.f, 50.f);
-
-        const float vertical_travel_distance = 60.f;
-        
-        const float vertical_movement_speed = 30.0f;
-        const float horizontal_movement_speed = 75.0f;
+        const sf::Vector2f left_most_position = sf::Vector2f(50.f, 75.f);
+        const sf::Vector2f right_most_position = sf::Vector2f(1790.f, 75.f);
+        const sf::Vector2f barrel_position_offset = sf::Vector2f(30.f, 75.f);
         
         EnemyModel(EnemyType type);
         ~EnemyModel();
@@ -46,5 +43,8 @@ namespace Enemy
         
         MovementDirection getMovementDirection() const;
         void setMovementDirection(MovementDirection direction);
+
+        Entity::EntityType getEntityType() const;
+        void setEntityType(Entity::EntityType type);
     };
 }

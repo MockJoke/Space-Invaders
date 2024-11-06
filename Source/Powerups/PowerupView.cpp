@@ -13,10 +13,7 @@ namespace Powerup
         createUIElements();
     }
 
-    PowerupView::~PowerupView()
-    {
-        destroy();
-    }
+    PowerupView::~PowerupView() { destroy(); }
 
     void PowerupView::initialize(PowerupController* controller)
     {
@@ -53,11 +50,16 @@ namespace Powerup
             return Config::shield_texture_path;
 
         case PowerupType::TRIPPLE_LASER:
-            return Config::tripple_laser_texture_path;
+            return Config::triple_laser_texture_path;
 
         case PowerupType::RAPID_FIRE:
             return Config::rapid_fire_texture_path;
         }
+    }
+
+    const sf::Sprite& PowerupView::getPowerupSprite() const
+    { 
+        return powerup_image->getSprite();
     }
 
     void PowerupView::destroy() const

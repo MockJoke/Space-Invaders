@@ -1,6 +1,7 @@
 #include "../../Header/Enemy/Controllers/UFOController.h"
 #include "../../../Header/Global/ServiceLocator.h"
 #include "../../Header/Enemy/EnemyModel.h"
+#include "../../header/Bullet/BulletController.h"
 
 namespace Enemy
 {
@@ -31,59 +32,63 @@ namespace Enemy
         
         void UFOController::moveLeft()
         {
-            // Get the current position of the enemy
             sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
 
-            // Update the position to move left
-            currentPosition.x -= enemy_model->horizontal_movement_speed * Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+            currentPosition.x -= horizontal_movement_speed * Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
-            // Check if the enemy reached the leftmost position
             if (currentPosition.x <= enemy_model->left_most_position.x)
             {
-                // Set movement direction to DOWN and update reference position
                 enemy_model->setMovementDirection(MovementDirection::DOWN);
                 enemy_model->setReferencePosition(currentPosition);
             }
             else
             {
-                // Update the enemy position
                 enemy_model->setEnemyPosition(currentPosition);
             }
         }
 		
         void UFOController::moveRight()
         {
-            // Get the current position of the enemy
             sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
 
-            // Update the position to move right
-            currentPosition.x += enemy_model->horizontal_movement_speed * Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+            currentPosition.x += horizontal_movement_speed * Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
-            // Check if the enemy reached the rightmost position
             if (currentPosition.x >= enemy_model->right_most_position.x)
             {
-                // Set movement direction to DOWN and update reference position
                 enemy_model->setMovementDirection(MovementDirection::DOWN);
                 enemy_model->setReferencePosition(currentPosition);
             }
             else
             {
-                // Update the enemy position
                 enemy_model->setEnemyPosition(currentPosition);
             }
         }
 
-        void UFOController::fireBullet()
-        {
-        }
+        void UFOController::fireBullet() { }
 
         Powerup::PowerupType UFOController::getRandomPowerupType()
         {
             std::srand(static_cast<unsigned int>(std::time(nullptr)));
 			
-            //We add '1'  to TRIPPLE_LASER below because enum has a 0 index, making the bomb number 2, we need to add 1 to make it 3 
+            // Add '1' to TRIPLE_LASER below because enum has a 0 index, making the bomb number 2, we need to add 1 to make it 3 
             int random_value = std::rand() % (static_cast<int>(Powerup::PowerupType::TRIPPLE_LASER) + 1);																																																																																
             return static_cast<Powerup::PowerupType>(random_value);
+        }
+
+        void UFOController::onCollision(ICollider* other_collider)
+        {
+            EnemyController::onCollision(other_collider);
+            Bullet::BulletController* bullet_controller = dynamic_cast<Bullet::BulletController*>(other_collider);
+
+            if (bullet_controller && bullet_controller->getEntityType() != Entity::EntityType::ENEMY)
+            {
+                Global::ServiceLocator::getInstance()->getPowerupService()->spawnPowerup(getRandomPowerupType(), enemy_model->getEnemyPosition());
+            }
+        }
+
+        void UFOController::destroy()
+        {
+            EnemyController::destroy();
         }
     }
 }

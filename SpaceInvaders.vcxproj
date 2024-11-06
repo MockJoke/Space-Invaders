@@ -140,6 +140,8 @@
     <ClCompile Include="Source\Bullet\Controllers\LaserBulletController.cpp" />
     <ClCompile Include="Source\Bullet\Controllers\PlayerBulletController.cpp" />
     <ClCompile Include="Source\Bullet\Controllers\TorpedoeController.cpp" />
+    <ClCompile Include="Source\Collision\CollisionService.cpp" />
+    <ClCompile Include="Source\Collision\ICollider.cpp" />
     <ClCompile Include="Source\Elements\Bunker\BunkerController.cpp" />
     <ClCompile Include="Source\Elements\Bunker\BunkerModel.cpp" />
     <ClCompile Include="Source\Elements\Bunker\BunkerView.cpp" />
@@ -692,8 +694,10 @@
       <AdditionalIncludeDirectories>F:\MyGameProjects\SpaceInvaders\sfml\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
-    <ClCompile Include="Source\UI\Button.cpp" />
+    <ClCompile Include="Source\UI\GameplayUI\GameplayUIController.cpp" />
     <ClCompile Include="Source\UI\MainMenu\MainMenuController.cpp" />
+    <ClCompile Include="Source\UI\SplashScreen\SplashScreenUIController.cpp" />
+    <ClCompile Include="Source\UI\UIElement\AnimatedImageView.cpp" />
     <ClCompile Include="Source\UI\UIElement\ButtonView.cpp" />
     <ClCompile Include="Source\UI\UIElement\ImageView.cpp" />
     <ClCompile Include="Source\UI\UIElement\TextView.cpp" />
@@ -711,6 +715,8 @@
     <ClInclude Include="Header\Bullet\Controllers\PlayerBulletController.h" />
     <ClInclude Include="Header\Bullet\Controllers\TorpedoeController.h" />
     <ClInclude Include="Header\Collectible\ICollectible.h" />
+    <ClInclude Include="Header\Collision\CollisionService.h" />
+    <ClInclude Include="Header\Collision\ICollider.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerController.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerModel.h" />
     <ClInclude Include="Header\Elements\Bunker\BunkerView.h" />
@@ -724,6 +730,7 @@
     <ClInclude Include="Header\Enemy\EnemyModel.h" />
     <ClInclude Include="Header\Enemy\EnemyService.h" />
     <ClInclude Include="Header\Enemy\EnemyView.h" />
+    <ClInclude Include="Header\Entity\EntityConfig.h" />
     <ClInclude Include="Header\Event\EventService.h" />
     <ClInclude Include="Header\Gameplay\GameplayController.h" />
     <ClInclude Include="Header\Gameplay\GameplayService.h" />
@@ -747,9 +754,11 @@
     <ClInclude Include="Header\Projectile\IProjectile.h" />
     <ClInclude Include="Header\Sound\SoundService.h" />
     <ClInclude Include="Header\Time\TimeService.h" />
-    <ClInclude Include="Header\UI\Button.h" />
+    <ClInclude Include="Header\UI\GameplayUI\GameplayUIController.h" />
     <ClInclude Include="Header\UI\Interface\IUIController.h" />
     <ClInclude Include="Header\UI\MainMenu\MainMenuController.h" />
+    <ClInclude Include="Header\UI\SplashScreen\SplashScreenUIController.h" />
+    <ClInclude Include="Header\UI\UIElement\AnimatedImageView.h" />
     <ClInclude Include="Header\UI\UIElement\ButtonView.h" />
     <ClInclude Include="Header\UI\UIElement\ImageView.h" />
     <ClInclude Include="Header\UI\UIElement\TextView.h" />

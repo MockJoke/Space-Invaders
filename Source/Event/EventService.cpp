@@ -9,7 +9,7 @@ namespace Event
         game_window = nullptr;
     }
 
-    EventService::~EventService() = default;    // calls the default destructor
+    EventService::~EventService() = default;
 
     void EventService::initialize()
     {
@@ -76,7 +76,7 @@ namespace Event
                 if (gameWindowWasClosed() || hasQuitGame())
                 {
                     game_window->close();
-                }               
+                }
             }
         }
     }
