@@ -5,14 +5,14 @@ namespace Bullet
 {
     namespace Controller
     {
-        class TorpedoeController : public BulletController
+        class TorpedoController : public BulletController
         {
         private:
-            const float torpedoe_movement_speed = 200.f;
+            const float torpedo_movement_speed = 200.f;
 
         public:
-            TorpedoeController(BulletType bullet_type, Entity::EntityType entity_type);
-            ~TorpedoeController();
+            TorpedoController(BulletType bullet_type, Entity::EntityType entity_type);
+            ~TorpedoController();
 
             void initialize(sf::Vector2f position, MovementDirection direction) override;
         };

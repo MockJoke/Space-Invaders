@@ -18,8 +18,8 @@ namespace Player
 
 	PlayerController::~PlayerController()
 	{
-		delete(player_view);
-		delete(player_model);
+		delete (player_view);
+		delete (player_model);
 	}
 	
 	void PlayerController::initialize()

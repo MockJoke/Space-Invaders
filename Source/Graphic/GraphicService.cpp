@@ -18,7 +18,7 @@ namespace Graphic
 
 	sf::RenderWindow* GraphicService::createGameWindow()
 	{
-		setVideoMode();		// Sets up the video mode for the window
+		setVideoMode();
 		return new sf::RenderWindow(*video_mode, game_window_title, sf::Style::Fullscreen);
 	}
 
@@ -45,7 +45,7 @@ namespace Graphic
 
 	void GraphicService::onDestroy() const
 	{
-		delete(video_mode);
-		delete(game_window);
+		delete (video_mode);
+		delete (game_window);
 	}
 }

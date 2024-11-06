@@ -58,38 +58,29 @@ namespace Enemy
         
         void ThunderSnakeController::moveLeft()
         {
-            // Get the current position of the enemy
             sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
 
-            // Update the position to move left
             currentPosition.x -= horizontal_movement_speed * Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
-            // Check if the enemy reached the leftmost position
             if (currentPosition.x <= enemy_model->left_most_position.x)
             {
-                // Set movement direction to EIGHT_DOWN and update reference position
                 enemy_model->setMovementDirection(MovementDirection::RIGHT_DOWN);
                 enemy_model->setReferencePosition(currentPosition);
             }
             else
             {
-                // Update the enemy position
                 enemy_model->setEnemyPosition(currentPosition);
             }
         }
 		
         void ThunderSnakeController::moveRight()
         {
-            // Get the current position of the enemy
             sf::Vector2f currentPosition = enemy_model->getEnemyPosition();
 
-            // Update the position to move right
             currentPosition.x += horizontal_movement_speed * Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 
-            // Check if the enemy reached the rightmost position
             if (currentPosition.x >= enemy_model->right_most_position.x)
             {
-                // Set movement direction to LEFT_DOWN and update reference position
                 enemy_model->setMovementDirection(MovementDirection::LEFT_DOWN);
                 enemy_model->setReferencePosition(currentPosition);
             }

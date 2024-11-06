@@ -4,7 +4,7 @@
 #include "../../Header/Bullet/Controllers/PlayerBulletController.h"
 #include "../../Header/Bullet/Controllers/FrostBulletController.h"
 #include "../../Header/Bullet/Controllers/LaserBulletController.h"
-#include "../../Header/Bullet/Controllers/TorpedoeController.h"
+#include "../../Header/Bullet/Controllers/TorpedoController.h"
 #include "../../Header/Global/ServiceLocator.h"
 
 namespace Bullet
@@ -51,7 +51,7 @@ namespace Bullet
             return new Controller::FrostBulletController(BulletType::FROST_BULLET, entity_type);
 
         case BulletType::TORPEDO:
-            return new Controller::TorpedoeController(BulletType::TORPEDO, entity_type);
+            return new Controller::TorpedoController(BulletType::TORPEDO, entity_type);
         }
     }
 

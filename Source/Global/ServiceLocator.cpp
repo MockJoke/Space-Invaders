@@ -17,6 +17,7 @@ namespace Global
         bullet_service = nullptr;
         powerup_service = nullptr;
         collision_service = nullptr;
+        animation_service = nullptr;
         
         createServices();
     }
@@ -40,6 +41,7 @@ namespace Global
         bullet_service = new Bullet::BulletService();
         powerup_service = new Powerup::PowerupService();
         collision_service = new Collision::CollisionService();
+        animation_service = new Animation::AnimationService();
     }
 
     void ServiceLocator::initialize() const
@@ -56,6 +58,7 @@ namespace Global
         bullet_service->initialize();
         powerup_service->initialize();
         collision_service->initialize();
+        animation_service->initialize();
     }
 
     void ServiceLocator::update() const
@@ -73,6 +76,7 @@ namespace Global
             bullet_service->update();
             powerup_service->update();
             collision_service->update();
+            animation_service->update();
         }
 
         ui_service->update();
@@ -90,6 +94,7 @@ namespace Global
             element_service->render();
             bullet_service->render();
             powerup_service->render();
+            animation_service->render();
         }
 
         ui_service->render();
@@ -97,18 +102,19 @@ namespace Global
 
     void ServiceLocator::clearAllServices()
     {
-        delete(graphic_service);
-        delete(time_service);
-        delete(event_service);
-        delete(ui_service);
-        delete(gameplay_service);
-        delete(player_service);
-        delete(enemy_service);
-        delete(element_service);
-        delete(sound_service);
-        delete(bullet_service);
-        delete(powerup_service);
-        delete(collision_service);
+        delete (graphic_service);
+        delete (time_service);
+        delete (event_service);
+        delete (ui_service);
+        delete (gameplay_service);
+        delete (player_service);
+        delete (enemy_service);
+        delete (element_service);
+        delete (sound_service);
+        delete (bullet_service);
+        delete (powerup_service);
+        delete (collision_service);
+        delete (animation_service);
         
         graphic_service = nullptr;
         time_service = nullptr;
@@ -122,6 +128,7 @@ namespace Global
         bullet_service = nullptr;
         powerup_service = nullptr;
         collision_service = nullptr;
+        animation_service = nullptr;
     }
 
     ServiceLocator* ServiceLocator::getInstance()
@@ -130,7 +137,6 @@ namespace Global
         return &instance;
     }
 
-    // Returns a pointer to the currently set graphic service
     Graphic::GraphicService* ServiceLocator::getGraphicService() const { return graphic_service; }
     Time::TimeService* ServiceLocator::getTimeService() const { return time_service; }
     Event::EventService* ServiceLocator::getEventService() const { return event_service; }
@@ -143,4 +149,5 @@ namespace Global
     Bullet::BulletService* ServiceLocator::getBulletService() const { return bullet_service; }
     Powerup::PowerupService* ServiceLocator::getPowerupService() const { return powerup_service; }
     Collision::CollisionService* ServiceLocator::getCollisionService() const { return collision_service; }
+    Animation::AnimationService* ServiceLocator::getAnimationService() const { return animation_service; }
 }

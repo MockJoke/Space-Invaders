@@ -26,7 +26,7 @@ namespace Time
 
     float TimeService::calculateDeltaTime() const
     {
-        // Calculate time difference in microseconds between the current and previous frame.
+        // Calculate time diff in microseconds bw the current & previous frame
         const int delta = std::chrono::duration_cast<std::chrono::microseconds>(
             std::chrono::steady_clock::now() - previous_time).count();
 
@@ -34,7 +34,7 @@ namespace Time
         return static_cast<float>(delta) / static_cast<float>(1000000);
     }
 
-    // Update previous_time to the current time
+    // Update previous time to the current time
     void TimeService::updatePreviousTime()
     {
         previous_time = std::chrono::steady_clock::now();

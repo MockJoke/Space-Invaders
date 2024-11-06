@@ -1,4 +1,6 @@
 ﻿#include "../../Header/Enemy/EnemyController.h"
+
+#include "../../Header/AnimationSystem/AnimationService.h"
 #include "../../Header/Enemy/EnemyConfig.h"
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Enemy/EnemyModel.h"
@@ -77,7 +79,6 @@ namespace Enemy
         sf::Vector2f enemyPosition = getEnemyPosition();
         sf::Vector2u windowSize = Global::ServiceLocator::getInstance()->getGraphicService()->getGameWindow()->getSize();
 
-        // Destroy the enemy if it goes out of bounds.
         if (enemyPosition.x < 0 || enemyPosition.x > windowSize.x ||
             enemyPosition.y < 0 || enemyPosition.y > windowSize.y)
         {
@@ -125,6 +126,8 @@ namespace Enemy
 
     void EnemyController::destroy()
     {
+        Global::ServiceLocator::getInstance()->getAnimationService()->spawnAnimationSystem(enemy_model->getEnemyPosition(), Animation::AnimationType::EXPLOSION);
+        
         Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::EXPLOSION);
         Global::ServiceLocator::getInstance()->getPlayerService()->increaseEnemiesKilled(1);
         Global::ServiceLocator::getInstance()->getEnemyService()->destroyEnemy(this);

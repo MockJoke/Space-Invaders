@@ -52,7 +52,7 @@ namespace Bullet
             return Global::Config::frost_beam_texture_path;
 
         case BulletType::TORPEDO:
-            return Global::Config::torpedoe_texture_path;
+            return Global::Config::torpedo_texture_path;
         }
     }
 

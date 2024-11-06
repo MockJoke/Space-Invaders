@@ -45,16 +45,6 @@ namespace Collision
 
 	bool CollisionService::hasCollisionOccurred(int index_i, int index_j)
 	{
-		if (index_i < 0 || index_i >= collider_list.size() || index_j < 0 || index_j >= collider_list.size()) {
-			std::cerr << "Error: Index out of bounds. index_i: " << index_i << ", index_j: " << index_j << std::endl;
-			return false;
-		}
-
-		if (collider_list[index_i] == nullptr || collider_list[index_j] == nullptr) {
-			std::cerr << "Error: Null collider at index_i: " << index_i << " or index_j: " << index_j << std::endl;
-			return false;
-		}
-		
 		const sf::Sprite& collider_one_sprite = collider_list[index_i]->getColliderSprite();
 		const sf::Sprite& collider_two_sprite = collider_list[index_j]->getColliderSprite();
 

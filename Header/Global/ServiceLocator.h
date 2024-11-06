@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "../AnimationSystem/AnimationService.h"
 #include "../Enemy/EnemyService.h"
 #include "../Graphic/GraphicService.h"
 #include "../Event/EventService.h"
@@ -32,6 +33,7 @@ namespace Global
         Bullet::BulletService* bullet_service;
         Powerup::PowerupService* powerup_service;
         Collision::CollisionService* collision_service;
+        Animation::AnimationService* animation_service;
         
         ServiceLocator(); 
         ~ServiceLocator(); 	
@@ -46,7 +48,6 @@ namespace Global
         void update() const;
         void render() const;
 
-        // Methods to Get Specific Services: 
         Graphic::GraphicService* getGraphicService() const;
         Time::TimeService* getTimeService() const;
         Event::EventService* getEventService() const;
@@ -59,5 +60,6 @@ namespace Global
         Bullet::BulletService* getBulletService() const;
         Powerup::PowerupService* getPowerupService() const;
         Collision::CollisionService* getCollisionService() const;
+        Animation::AnimationService* getAnimationService() const;
     };
 }

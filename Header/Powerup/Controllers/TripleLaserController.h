@@ -5,14 +5,14 @@ namespace Powerup
 {
     namespace Controller
     {
-        class TrippleLaserController : public PowerupController
+        class TripleLaserController : public PowerupController
         {
         protected:
             void applyPowerup() override;
             
         public:
-            TrippleLaserController(PowerupType type);
-            virtual ~TrippleLaserController();
+            TripleLaserController(PowerupType type);
+            virtual ~TripleLaserController();
         };
     }
 }

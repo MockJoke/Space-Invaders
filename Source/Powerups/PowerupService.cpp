@@ -4,7 +4,7 @@
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Powerup/Controllers/RapidFireController.h"
 #include "../../header/Powerup/Controllers/ShieldController.h"
-#include "../../header/Powerup/Controllers/TrippleLaserController.h"
+#include "../../header/Powerup/Controllers/TripleLaserController.h"
 
 namespace Powerup
 {
@@ -42,8 +42,8 @@ namespace Powerup
 		case PowerupType::RAPID_FIRE:
 			return new Controller::RapidFireController(PowerupType::RAPID_FIRE);
 
-		case PowerupType::TRIPPLE_LASER:
-			return new Controller::TrippleLaserController(PowerupType::TRIPPLE_LASER);
+		case PowerupType::TRIPLE_LASER:
+			return new Controller::TripleLaserController(PowerupType::TRIPLE_LASER);
 		}
 	}
 

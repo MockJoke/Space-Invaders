@@ -132,6 +132,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\AnimationSystem\AnimationService.cpp" />
+    <ClCompile Include="Source\AnimationSystem\AnimationSystem.cpp" />
     <ClCompile Include="Source\Bullet\BulletController.cpp" />
     <ClCompile Include="Source\Bullet\BulletModel.cpp" />
     <ClCompile Include="Source\Bullet\BulletService.cpp" />
@@ -613,7 +615,7 @@
     <ClCompile Include="Source\Player\PlayerView.cpp" />
     <ClCompile Include="Source\Powerups\Controllers\RapidFireController.cpp" />
     <ClCompile Include="Source\Powerups\Controllers\ShieldController.cpp" />
-    <ClCompile Include="Source\Powerups\Controllers\TrippleLaserController.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\TripleLaserController.cpp" />
     <ClCompile Include="Source\Powerups\PowerupController.cpp" />
     <ClCompile Include="Source\Powerups\PowerupModel.cpp" />
     <ClCompile Include="Source\Powerups\PowerupService.cpp" />
@@ -705,6 +707,10 @@
     <ClCompile Include="Source\UI\UIService.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Header\AnimationSystem\AnimationService.h" />
+    <ClInclude Include="Header\AnimationSystem\AnimationSystem.h" />
+    <ClInclude Include="Header\AnimationSystem\AnimationSystemConfig.h" />
+    <ClInclude Include="Header\AnimationSystem\AnimationSystemConfigData.h" />
     <ClInclude Include="Header\Bullet\BulletConfig.h" />
     <ClInclude Include="Header\Bullet\BulletController.h" />
     <ClInclude Include="Header\Bullet\BulletModel.h" />
@@ -713,7 +719,7 @@
     <ClInclude Include="Header\Bullet\Controllers\FrostBulletController.h" />
     <ClInclude Include="Header\Bullet\Controllers\LaserBulletController.h" />
     <ClInclude Include="Header\Bullet\Controllers\PlayerBulletController.h" />
-    <ClInclude Include="Header\Bullet\Controllers\TorpedoeController.h" />
+    <ClInclude Include="Header\Bullet\Controllers\TorpedoController.h" />
     <ClInclude Include="Header\Collectible\ICollectible.h" />
     <ClInclude Include="Header\Collision\CollisionService.h" />
     <ClInclude Include="Header\Collision\ICollider.h" />
@@ -745,7 +751,7 @@
     <ClInclude Include="Header\Player\PlayerView.h" />
     <ClInclude Include="Header\Powerup\Controllers\RapidFireController.h" />
     <ClInclude Include="Header\Powerup\Controllers\ShieldController.h" />
-    <ClInclude Include="Header\Powerup\Controllers\TrippleLaserController.h" />
+    <ClInclude Include="Header\Powerup\Controllers\TripleLaserController.h" />
     <ClInclude Include="Header\Powerup\PowerupConfig.h" />
     <ClInclude Include="Header\Powerup\PowerupController.h" />
     <ClInclude Include="Header\Powerup\PowerupModel.h" />
@@ -764,9 +770,6 @@
     <ClInclude Include="Header\UI\UIElement\TextView.h" />
     <ClInclude Include="Header\UI\UIElement\UIView.h" />
     <ClInclude Include="Header\UI\UIService.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\Collectible\" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

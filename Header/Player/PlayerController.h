@@ -65,7 +65,7 @@ namespace Player
         sf::Vector2f getPlayerPosition() const;
         PlayerState getPlayerState() const;
 
-        void onCollision(Collision::ICollider* other_collider) override;
+        void onCollision(ICollider* other_collider) override;
         const sf::Sprite& getColliderSprite() override;
     };    
 }
