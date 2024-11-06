@@ -719,7 +719,7 @@
     <ClInclude Include="Header\Bullet\Controllers\FrostBulletController.h" />
     <ClInclude Include="Header\Bullet\Controllers\LaserBulletController.h" />
     <ClInclude Include="Header\Bullet\Controllers\PlayerBulletController.h" />
-    <ClInclude Include="Header\Bullet\Controllers\TorpedoeController.h" />
+    <ClInclude Include="Header\Bullet\Controllers\TorpedoController.h" />
     <ClInclude Include="Header\Collectible\ICollectible.h" />
     <ClInclude Include="Header\Collision\CollisionService.h" />
     <ClInclude Include="Header\Collision\ICollider.h" />
