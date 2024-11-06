@@ -15,8 +15,8 @@ namespace Bullet
 
     BulletController::~BulletController()
     {
-        delete(bullet_view);
-        delete(bullet_model);
+        delete (bullet_view);
+        delete (bullet_model);
     }
 
     void BulletController::initialize(sf::Vector2f position, MovementDirection direction)

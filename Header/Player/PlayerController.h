@@ -40,9 +40,9 @@ namespace Player
 
         void updatePowerupDuration();
        
-        void disableShield();   
-        void disableRapidFire();    
-        void disableTripleLaser();
+        void disableShield() const;   
+        void disableRapidFire() const;    
+        void disableTripleLaser() const;
 
     public:
         PlayerController();

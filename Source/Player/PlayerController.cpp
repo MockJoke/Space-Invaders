@@ -126,11 +126,18 @@ namespace Player
 
 		if (bullet_controller && bullet_controller->getEntityType() != Entity::EntityType::PLAYER)
 		{
-			if (bullet_controller->getBulletType() == Bullet::BulletType::FROST_BULLET) freezePlayer();
-			else decreasePlayerLive();
+			if (bullet_controller->getBulletType() == Bullet::BulletType::FROST_BULLET)
+			{
+				freezePlayer();
+			}
+			else
+			{
+				decreasePlayerLive();
+			}
 
 			return true;
 		}
+		
 		return false;
 	}
 
@@ -204,7 +211,7 @@ namespace Player
 		player_view->setPlayerHighlight(true);
 	}
 
-	void PlayerController::disableShield()
+	void PlayerController::disableShield() const
 	{
 		Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::POWERUP_DISABLED);
 		player_model->setShieldState(false);
@@ -218,7 +225,7 @@ namespace Player
 		player_model->setRapidFireState(true);
 	}
 
-	void PlayerController::disableRapidFire()
+	void PlayerController::disableRapidFire() const
 	{
 		Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::POWERUP_DISABLED);
 		player_model->setRapidFireState(false);
@@ -231,7 +238,7 @@ namespace Player
 		player_model->setTripleFireState(true);
 	}
 
-	void PlayerController::disableTripleLaser()
+	void PlayerController::disableTripleLaser() const
 	{
 		Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::POWERUP_DISABLED);
 		player_model->setTripleFireState(false);
@@ -261,17 +268,26 @@ namespace Player
 
 	void PlayerController::processBulletFire()
 	{
-		if (elapsed_fire_duration > 0) return;
+		if (elapsed_fire_duration > 0)
+			return;
 		
-		if (player_model->isTripleLaserEnabled()) 
+		if (player_model->isTripleLaserEnabled())
+		{
 			fireBullet(true);
+		}
+		else
+		{
+			fireBullet();
+		}
 
-		else fireBullet();
-
-		if (player_model->isRapidFireEnabled()) 
+		if (player_model->isRapidFireEnabled())
+		{
 			elapsed_fire_duration = player_model->rapid_fire_cooldown_duration;
-
-		else elapsed_fire_duration = player_model->fire_cooldown_duration;
+		}
+		else
+		{
+			elapsed_fire_duration = player_model->fire_cooldown_duration;
+		}
 	}
 
 	void PlayerController::fireBullet(bool b_triple_laser)
