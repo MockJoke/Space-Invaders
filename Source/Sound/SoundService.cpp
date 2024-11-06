@@ -24,17 +24,17 @@ namespace Sound
             printf("Error loading background music file");
         }
 
-        if (!buffer_button_click.loadFromFile(Global::Config::bullet_fire_sound_path))
+        if (!buffer_bullet_fire.loadFromFile(Global::Config::bullet_fire_sound_path))
         {
             printf("Error loading bullet fire sound file");
         }
 
-        if (!buffer_button_click.loadFromFile(Global::Config::powerup_enabled_sound_path))
+        if (!buffer_powerup_enabled.loadFromFile(Global::Config::powerup_enabled_sound_path))
         {
             printf("Error loading powerup enabled sound file");
         }
 
-        if (!buffer_button_click.loadFromFile(Global::Config::powerup_disabled_sound_path))
+        if (!buffer_powerup_disabled.loadFromFile(Global::Config::powerup_disabled_sound_path))
         {
             printf("Error loading powerup disabled sound file");
         }
