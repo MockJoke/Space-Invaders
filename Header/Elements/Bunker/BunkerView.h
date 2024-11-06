@@ -1,6 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../../Global/Config.h"
 #include "../../header/UI/UIElement/ImageView.h"
 
 namespace Element

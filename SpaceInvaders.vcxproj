@@ -615,7 +615,7 @@
     <ClCompile Include="Source\Player\PlayerView.cpp" />
     <ClCompile Include="Source\Powerups\Controllers\RapidFireController.cpp" />
     <ClCompile Include="Source\Powerups\Controllers\ShieldController.cpp" />
-    <ClCompile Include="Source\Powerups\Controllers\TrippleLaserController.cpp" />
+    <ClCompile Include="Source\Powerups\Controllers\TripleLaserController.cpp" />
     <ClCompile Include="Source\Powerups\PowerupController.cpp" />
     <ClCompile Include="Source\Powerups\PowerupModel.cpp" />
     <ClCompile Include="Source\Powerups\PowerupService.cpp" />
@@ -751,7 +751,7 @@
     <ClInclude Include="Header\Player\PlayerView.h" />
     <ClInclude Include="Header\Powerup\Controllers\RapidFireController.h" />
     <ClInclude Include="Header\Powerup\Controllers\ShieldController.h" />
-    <ClInclude Include="Header\Powerup\Controllers\TrippleLaserController.h" />
+    <ClInclude Include="Header\Powerup\Controllers\TripleLaserController.h" />
     <ClInclude Include="Header\Powerup\PowerupConfig.h" />
     <ClInclude Include="Header\Powerup\PowerupController.h" />
     <ClInclude Include="Header\Powerup\PowerupModel.h" />

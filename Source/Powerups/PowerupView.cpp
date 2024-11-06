@@ -49,7 +49,7 @@ namespace Powerup
         case PowerupType::SHIELD:
             return Config::shield_texture_path;
 
-        case PowerupType::TRIPPLE_LASER:
+        case PowerupType::TRIPLE_LASER:
             return Config::triple_laser_texture_path;
 
         case PowerupType::RAPID_FIRE:
@@ -64,6 +64,6 @@ namespace Powerup
 
     void PowerupView::destroy() const
     {
-        delete(powerup_image);
+        delete (powerup_image);
     }
 }

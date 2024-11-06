@@ -60,6 +60,6 @@ namespace Enemy
 
     void EnemyView::destroy() const
     {
-        delete(enemy_image);
+        delete (enemy_image);
     }
 }

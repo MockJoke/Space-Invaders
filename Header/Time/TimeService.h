@@ -13,14 +13,13 @@ namespace Time
         // A point in time which indicates the starting time of previous frame
         std::chrono::time_point<std::chrono::steady_clock> previous_time;
 
-        float delta_time;   // To store the delta time
+        float delta_time;
 
         void updateDeltaTime();
-        float calculateDeltaTime() const;     // Calculate time by subtracting the previous time from the current time
-        void updatePreviousTime();      // Finally update the current time to be previous time
+        float calculateDeltaTime() const;
+        void updatePreviousTime();
 
     public:
-        //lifecycle methods
         void initialize();
         void update();
 

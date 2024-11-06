@@ -71,7 +71,7 @@ namespace Enemy
             std::srand(static_cast<unsigned int>(std::time(nullptr)));
 			
             // Add '1' to TRIPLE_LASER below because enum has a 0 index, making the bomb number 2, we need to add 1 to make it 3 
-            int random_value = std::rand() % (static_cast<int>(Powerup::PowerupType::TRIPPLE_LASER) + 1);																																																																																
+            int random_value = std::rand() % (static_cast<int>(Powerup::PowerupType::TRIPLE_LASER) + 1);																																																																																
             return static_cast<Powerup::PowerupType>(random_value);
         }
 
