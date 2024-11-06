@@ -101,22 +101,25 @@ namespace Enemy
     {
         for (int i = 0; i < flagged_enemy_list.size(); i++)
         {
-            Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<Collision::ICollider*>(flagged_enemy_list[i]));
+            Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(flagged_enemy_list[i]);
             delete (flagged_enemy_list[i]);
         }
+        
         flagged_enemy_list.clear();
     }
 
     void EnemyService::destroyEnemy(EnemyController* enemy_controller)
     {
-        dynamic_cast<Collision::ICollider*>(enemy_controller)->disableCollision();
+        enemy_controller->disableCollision();
         flagged_enemy_list.push_back(enemy_controller);
         enemy_list.erase(std::remove(enemy_list.begin(), enemy_list.end(), enemy_controller), enemy_list.end());
     }
 	
     void EnemyService::destroy() const
     {
-        for (int i = 0; i < enemy_list.size(); i++)
-            delete (enemy_list[i]);
+        for (auto enemy : enemy_list)
+        {
+            delete (enemy);
+        }
     }
 }

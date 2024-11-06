@@ -10,5 +10,5 @@ namespace Collision
 
 	void ICollider::disableCollision() { collision_state = CollisionState::DISABLED; }
 
-	CollisionState ICollider::getCollisionState() { return collision_state; }
+	CollisionState ICollider::getCollisionState() const { return collision_state; }
 }

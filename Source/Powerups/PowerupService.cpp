@@ -63,7 +63,7 @@ namespace Powerup
 	{
 		for (Collectible::ICollectible* powerup : flagged_powerup_list)
 		{
-			delete(powerup);
+			delete (powerup);
 		}
 
 		flagged_powerup_list.clear();
@@ -71,15 +71,17 @@ namespace Powerup
 	
 	void PowerupService::destroyPowerup(PowerupController* powerup_controller)
 	{
+		powerup_controller->disableCollision();
+		Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(powerup_controller);
 		powerup_list.erase(std::remove(powerup_list.begin(), powerup_list.end(), powerup_controller), powerup_list.end());
-		delete(powerup_controller);
+		delete (powerup_controller);
 	}
 
 	void PowerupService::destroy() const
 	{
 		for (Collectible::ICollectible* powerup : powerup_list)
 		{
-			delete(powerup);
+			delete (powerup);
 		}
 	}
 }

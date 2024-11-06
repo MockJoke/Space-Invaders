@@ -51,9 +51,10 @@ namespace Element
     {
         for (int i = 0; i < flagged_bunker_list.size(); i++)
         {
-            Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<Collision::ICollider*>(flagged_bunker_list[i]));
+            Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(flagged_bunker_list[i]);
             delete (flagged_bunker_list[i]);
         }
+        
         flagged_bunker_list.clear();
     }
 
@@ -61,9 +62,10 @@ namespace Element
     {
         for (int i = 0; i < bunker_list.size(); i++)
         {
-            Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<Collision::ICollider*>(bunker_list[i]));
-            delete(bunker_list[i]);
+            Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(bunker_list[i]);
+            delete (bunker_list[i]);
         }
+        
         bunker_list.clear();
     }
 

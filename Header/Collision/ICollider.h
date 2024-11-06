@@ -23,6 +23,6 @@ namespace Collision
 
         void enableCollision();
         void disableCollision();
-        CollisionState getCollisionState();
+        CollisionState getCollisionState() const;
     };
 }

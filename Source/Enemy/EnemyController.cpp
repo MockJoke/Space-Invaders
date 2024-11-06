@@ -16,8 +16,8 @@ namespace Enemy
 
     EnemyController::~EnemyController()
     {
-        delete(enemy_view);
-        delete(enemy_model);
+        delete (enemy_view);
+        delete (enemy_model);
     }
 
     void EnemyController::initialize()

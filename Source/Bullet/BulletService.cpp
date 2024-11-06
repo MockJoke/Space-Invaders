@@ -88,7 +88,7 @@ namespace Bullet
 
     void BulletService::destroyBullet(BulletController* bullet_controller)
     {
-        dynamic_cast<Collision::ICollider*>(bullet_controller)->disableCollision();
+        bullet_controller->disableCollision();
         flagged_bullet_list.push_back(bullet_controller);
         bullet_list.erase(std::remove(bullet_list.begin(), bullet_list.end(), bullet_controller), bullet_list.end());
     }
@@ -97,11 +97,13 @@ namespace Bullet
     {
         for (int i = 0; i < bullet_list.size(); i++)
         {
-            if (!isValidBullet(i, bullet_list)) continue;
+            if (!isValidBullet(i, bullet_list))
+                continue;
 
             Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<Collision::ICollider*>(bullet_list[i]));
             delete (bullet_list[i]);
         }
+        
         bullet_list.clear();
     }
 }

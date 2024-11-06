@@ -14,8 +14,8 @@ namespace Powerup
 
     PowerupController::~PowerupController()
     {
-        delete(powerup_view);
-        delete(powerup_model);
+        delete (powerup_view);
+        delete (powerup_model);
     }
 
     void PowerupController::initialize(sf::Vector2f position)
