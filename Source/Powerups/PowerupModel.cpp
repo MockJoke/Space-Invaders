@@ -1,4 +1,4 @@
-#include "../../header/Powerup/PowerupModel.h"
+#include "../../Header/Powerup/PowerupModel.h"
 
 namespace Powerup
 {

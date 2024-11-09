@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
 #include "SFML/System/Vector2.hpp"
-#include "../../header/Entity/EntityConfig.h"
-#include "../../Header/Projectile/IProjectile.h"
+#include "../Entity/EntityConfig.h"
+#include "../Projectile/IProjectile.h"
 
 namespace Bullet
 {

@@ -1,5 +1,5 @@
-#include "../../header/UI/UIElement/UIView.h"
-#include "../../header/Global/ServiceLocator.h"
+#include "../../Header/UI/UIElement/UIView.h"
+#include "../../Header/Global/ServiceLocator.h"
 
 namespace UI
 {

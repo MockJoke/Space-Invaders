@@ -1,10 +1,10 @@
-#include "../../header/Powerup/PowerupService.h"
-#include "../../header/Powerup/PowerupController.h"
-#include "../../header/Powerup/PowerupConfig.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Powerup/Controllers/RapidFireController.h"
-#include "../../header/Powerup/Controllers/ShieldController.h"
-#include "../../header/Powerup/Controllers/TripleLaserController.h"
+#include "../../Header/Powerup/PowerupService.h"
+#include "../../Header/Powerup/PowerupController.h"
+#include "../../Header/Powerup/PowerupConfig.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Powerup/Controllers/RapidFireController.h"
+#include "../../Header/Powerup/Controllers/ShieldController.h"
+#include "../../Header/Powerup/Controllers/TripleLaserController.h"
 
 namespace Powerup
 {

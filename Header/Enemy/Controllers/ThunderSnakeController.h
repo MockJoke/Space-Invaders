@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "../../header/Enemy/EnemyController.h"
+#include "../EnemyController.h"
 
 namespace Enemy
 {

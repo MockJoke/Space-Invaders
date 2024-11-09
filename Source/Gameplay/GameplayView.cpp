@@ -1,4 +1,4 @@
-﻿#include "../../header/Gameplay/GameplayView.h"
+﻿#include "../../Header/Gameplay/GameplayView.h"
 #include "../../Header/Global/ServiceLocator.h"
 
 namespace Gameplay

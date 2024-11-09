@@ -1,8 +1,8 @@
 #pragma once
-#include "../../header/UI/Interface/IUIController.h"
-#include "../../header/UI/UIElement/ImageView.h"
-#include "../../header/UI/UIElement/ButtonView.h"
-#include "../../header/UI/UIElement/TextView.h"
+#include "../../UI/Interface/IUIController.h"
+#include "../../UI/UIElement/ImageView.h"
+#include "../../UI/UIElement/ButtonView.h"
+#include "../../UI/UIElement/TextView.h"
 
 namespace UI
 {

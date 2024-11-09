@@ -1,8 +1,8 @@
-#include "../../header/UI/GameplayUI/GameplayUIController.h"
-#include "../../header/Global/Config.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Sound/SoundService.h"
-#include "../../header/Player/PlayerModel.h"
+#include "../../Header/UI/GameplayUI/GameplayUIController.h"
+#include "../../Header/Global/Config.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Sound/SoundService.h"
+#include "../../Header/Player/PlayerModel.h"
 
 namespace UI
 {

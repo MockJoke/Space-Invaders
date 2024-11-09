@@ -1,5 +1,5 @@
-#include "../../header/AnimationSystem/AnimationService.h"
-#include "../../header/AnimationSystem/AnimationSystemConfigData.h"
+#include "../../Header/AnimationSystem/AnimationService.h"
+#include "../../Header/AnimationSystem/AnimationSystemConfigData.h"
 
 namespace Animation
 {

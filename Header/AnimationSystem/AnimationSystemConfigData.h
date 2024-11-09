@@ -1,6 +1,6 @@
 #pragma once
 #include "AnimationSystemConfig.h"
-#include "../../header/Global/Config.h"
+#include  "../Global/Config.h"
 
 namespace Animation
 {

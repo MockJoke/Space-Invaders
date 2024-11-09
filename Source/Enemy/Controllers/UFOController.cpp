@@ -1,7 +1,7 @@
 #include "../../Header/Enemy/Controllers/UFOController.h"
 #include "../../../Header/Global/ServiceLocator.h"
 #include "../../Header/Enemy/EnemyModel.h"
-#include "../../header/Bullet/BulletController.h"
+#include "../../Header/Bullet/BulletController.h"
 
 namespace Enemy
 {

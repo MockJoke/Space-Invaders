@@ -2,8 +2,8 @@
 #include "../../Header/Bullet/BulletModel.h"
 #include "../../Header/Bullet/BulletView.h"
 #include "../../Header/Global/ServiceLocator.h"
-#include "../../header/Player/PlayerController.h"
-#include "../../header/Enemy/EnemyController.h"
+#include "../../Header/Player/PlayerController.h"
+#include "../../Header/Enemy/EnemyController.h"
 
 namespace Bullet
 {

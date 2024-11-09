@@ -1,5 +1,5 @@
-﻿#include "../../header/Gameplay/GameplayController.h"
-#include "../../header/Gameplay/GameplayView.h"
+﻿#include "../../Header/Gameplay/GameplayController.h"
+#include "../../Header/Gameplay/GameplayView.h"
 
 namespace Gameplay
 {

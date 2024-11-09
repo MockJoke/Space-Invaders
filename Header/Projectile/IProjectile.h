@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/System/Vector2.hpp>
-#include "../../Header/Bullet/BulletConfig.h"
+#include "../Bullet/BulletConfig.h"
 
 namespace Projectile
 {

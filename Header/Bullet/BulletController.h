@@ -1,7 +1,7 @@
 #pragma once
-#include "../../Header/Projectile/IProjectile.h"
+#include "../Projectile/IProjectile.h"
 #include "../Collision/ICollider.h"
-#include "../../header/Entity/EntityConfig.h"
+#include  "../Entity/EntityConfig.h"
 
 namespace Bullet
 {

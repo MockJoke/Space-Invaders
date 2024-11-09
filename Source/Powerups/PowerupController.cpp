@@ -1,8 +1,8 @@
-#include "../../header/Powerup/PowerupController.h"
-#include "../../header/Powerup/PowerupView.h"
-#include "../../header/Powerup/PowerupModel.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Player/PlayerController.h"
+#include "../../Header/Powerup/PowerupController.h"
+#include "../../Header/Powerup/PowerupView.h"
+#include "../../Header/Powerup/PowerupModel.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/Player/PlayerController.h"
 
 namespace Powerup
 {

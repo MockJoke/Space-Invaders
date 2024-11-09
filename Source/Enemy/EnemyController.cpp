@@ -1,12 +1,11 @@
 ﻿#include "../../Header/Enemy/EnemyController.h"
-
 #include "../../Header/AnimationSystem/AnimationService.h"
 #include "../../Header/Enemy/EnemyConfig.h"
 #include "../../Header/Enemy/EnemyView.h"
 #include "../../Header/Enemy/EnemyModel.h"
 #include "../../Header/Global/ServiceLocator.h"
-#include "../../header/Player/PlayerController.h"
-#include "../../header/Bullet/BulletController.h"
+#include "../../Header/Player/PlayerController.h"
+#include "../../Header/Bullet/BulletController.h"
 
 namespace Enemy
 {

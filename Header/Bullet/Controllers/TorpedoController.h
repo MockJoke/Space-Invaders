@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Header/Bullet/BulletController.h"
+#include "../BulletController.h"
 
 namespace Bullet
 {

@@ -1,8 +1,8 @@
 ﻿#pragma once
-#include "../../Header/UI/MainMenu/MainMenuController.h"
-#include "../../header/UI/SplashScreen/SplashScreenUIController.h"
-#include "../../header/UI/GameplayUI/GameplayUIController.h"
-#include "../../header/UI/Interface/IUIController.h"
+#include "../UI/MainMenu/MainMenuController.h"
+#include "../UI/SplashScreen/SplashScreenUIController.h"
+#include "../UI/GameplayUI/GameplayUIController.h"
+#include "../UI/Interface/IUIController.h"
 
 namespace UI
 {

@@ -4,9 +4,9 @@
 #include "../../Header/Player/PlayerView.h"
 #include "../../Header/Event/EventService.h"
 #include "../../Header/Global/ServiceLocator.h"
-#include "../../header/Bullet/BulletController.h"
-#include "../../header/Enemy/EnemyController.h"
-#include "../../header/Powerup/PowerupController.h"
+#include "../../Header/Bullet/BulletController.h"
+#include "../../Header/Enemy/EnemyController.h"
+#include "../../Header/Powerup/PowerupController.h"
 
 namespace Player
 {

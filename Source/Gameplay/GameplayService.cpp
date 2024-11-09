@@ -1,5 +1,5 @@
-﻿#include "../../header/Gameplay/GameplayService.h"
-#include "../../header/Gameplay/GameplayController.h"
+﻿#include "../../Header/Gameplay/GameplayService.h"
+#include "../../Header/Gameplay/GameplayController.h"
 #include "../../Header/Global/ServiceLocator.h"
 
 namespace Gameplay

@@ -1,7 +1,7 @@
-#include "../../header/AnimationSystem/AnimationSystem.h"
-#include "../../header/Global/Config.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/AnimationSystem/AnimationService.h"
+#include "../../Header/AnimationSystem/AnimationSystem.h"
+#include "../../Header/Global/Config.h"
+#include "../../Header/Global/ServiceLocator.h"
+#include "../../Header/AnimationSystem/AnimationService.h"
 
 namespace Animation
 {

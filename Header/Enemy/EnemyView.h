@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
 #include "EnemyConfig.h"
-#include "../../header/UI/UIElement/ImageView.h"
+#include "../UI/UIElement/ImageView.h"
 
 namespace Enemy
 {

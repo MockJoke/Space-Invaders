@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <SFML/System/Vector2.hpp>
-#include "../../header/AnimationSystem/AnimationSystem.h"
+#include  "AnimationSystem.h"
 
 namespace Animation
 {

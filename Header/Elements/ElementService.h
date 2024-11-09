@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
 #include <SFML/System/Vector2.hpp>
-#include "../../header/Elements/Bunker/BunkerController.h"
-#include "../../header/Elements/Bunker/BunkerModel.h"
+#include "../Elements/Bunker/BunkerController.h"
+#include "../Elements/Bunker/BunkerModel.h"
 
 namespace Element
 {

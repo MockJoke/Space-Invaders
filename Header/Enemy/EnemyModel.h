@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include <SFML/Graphics.hpp>
-#include "../../header/Entity/EntityConfig.h"
+#include "../Entity/EntityConfig.h"
 
 namespace Enemy
 {

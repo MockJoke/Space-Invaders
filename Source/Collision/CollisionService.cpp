@@ -1,8 +1,5 @@
-#include "../../header/Collision/CollisionService.h"
-
-#include <iostream>
-
-#include "../../header/Collision/ICollider.h"
+#include "../../Header/Collision/CollisionService.h"
+#include "../../Header/Collision/ICollider.h"
 
 namespace Collision
 {
