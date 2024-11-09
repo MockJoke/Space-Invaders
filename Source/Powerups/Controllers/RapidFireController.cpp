@@ -1,4 +1,4 @@
-#include "../../Header/Powerup/Controllers/RapidFireController.h"
+#include "../../../Header/Powerup/Controllers/RapidFireController.h"
 #include "../../../Header/Global/ServiceLocator.h"
 
 namespace Powerup

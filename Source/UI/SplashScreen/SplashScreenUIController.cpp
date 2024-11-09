@@ -1,9 +1,9 @@
-#include "../../Header/UI/SplashScreen/SplashScreenUIController.h"
-#include "../../Header/Main/GameService.h"
-#include "../../Header/Global/ServiceLocator.h"
-#include "../../Header/Graphic/GraphicService.h"
-#include "../../Header/Sound/SoundService.h"
-#include "../../Header/Global/Config.h"
+#include "../../../Header/UI/SplashScreen/SplashScreenUIController.h"
+#include "../../../Header/Main/GameService.h"
+#include "../../../Header/Global/ServiceLocator.h"
+#include "../../../Header/Graphic/GraphicService.h"
+#include "../../../Header/Sound/SoundService.h"
+#include "../../../Header/Global/Config.h"
 
 namespace UI
 {

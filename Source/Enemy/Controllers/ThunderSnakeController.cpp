@@ -1,6 +1,6 @@
-﻿#include "../../Header/Enemy/Controllers/ThunderSnakeController.h"
+﻿#include "../../../Header/Enemy/Controllers/ThunderSnakeController.h"
 #include "../../../Header/Global/ServiceLocator.h"
-#include "../../Header/Enemy/EnemyModel.h"
+#include "../../../Header/Enemy/EnemyModel.h"
 
 namespace Enemy
 {

@@ -1,5 +1,5 @@
-#include "../../Header/Bullet/Controllers/FrostBulletController.h"
-#include "../../Header/Bullet/BulletModel.h"
+#include "../../../Header/Bullet/Controllers/FrostBulletController.h"
+#include "../../../Header/Bullet/BulletModel.h"
 
 namespace Bullet
 {
