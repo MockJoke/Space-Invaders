@@ -37,6 +37,7 @@ A space invaders game made using C++ & SFML
 
 #### Utilities:
 - https://cmake.org/
+- https://www.sfml-dev.org/
 
 #### Graphics:
 - Most of them are made using a vector graphics software
