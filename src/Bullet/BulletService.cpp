@@ -81,6 +81,7 @@ namespace Bullet
 
             Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<Collision::ICollider*>(flagged_bullet_list[i]));
             delete (flagged_bullet_list[i]);
+            flagged_bullet_list[i] = nullptr;
         }
         
         flagged_bullet_list.clear();
