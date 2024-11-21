@@ -49,17 +49,17 @@ jobs:
 
       - name: Package Build (Windows)
         if: matrix.os == 'windows-latest'
-        run: 7z a ${{ github.workspace }}/build/sfml-project-windows.zip bin\*
+        run: 7z a ${{ github.workspace }}/build/Space-Invaders-windows.zip bin\*
         working-directory: ${{ github.workspace }}/build
 
       - name: Package Build (macOS)
         if: matrix.os == 'macos-latest'
-        run: zip -r ${{ github.workspace }}/build/sfml-project-macos.zip bin/*
+        run: zip -r ${{ github.workspace }}/build/Space-Invaders-macos.zip bin/*
         working-directory: ${{ github.workspace }}/build
 
       - name: Package Build (Linux)
         if: matrix.os == 'ubuntu-latest'
-        run: zip -r ${{ github.workspace }}/build/sfml-project-linux.zip bin/*
+        run: zip -r ${{ github.workspace }}/build/Space-Invaders-linux.zip bin/*
         working-directory: ${{ github.workspace }}/build
 
       # Upload artifacts to be used by the release job
@@ -67,22 +67,22 @@ jobs:
         if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v3
         with:
-          name: sfml-project-windows
-          path: ${{ github.workspace }}/build/sfml-project-windows.zip
+          name: Space-Invaders-windows
+          path: ${{ github.workspace }}/build/Space-Invaders-windows.zip
 
       - name: Upload macOS Build
         if: matrix.os == 'macos-latest'
         uses: actions/upload-artifact@v3
         with:
-          name: sfml-project-macos
-          path: ${{ github.workspace }}/build/sfml-project-macos.zip
+          name: Space-Invaders-macos
+          path: ${{ github.workspace }}/build/Space-Invaders-macos.zip
 
       - name: Upload Linux Build
         if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v3
         with:
-          name: sfml-project-linux
-          path: ${{ github.workspace }}/build/sfml-project-linux.zip
+          name: Space-Invaders-linux
+          path: ${{ github.workspace }}/build/Space-Invaders-linux.zip
 
   release:
     name: Release
@@ -97,27 +97,27 @@ jobs:
       - name: Download Windows Build Artifact
         uses: actions/download-artifact@v3
         with:
-          name: sfml-project-windows
+          name: Space-Invaders-windows
           path: ./build
 
       - name: Download macOS Build Artifact
         uses: actions/download-artifact@v3
         with:
-          name: sfml-project-macos
+          name: Space-Invaders-macos
           path: ./build
 
       - name: Download Linux Build Artifact
         uses: actions/download-artifact@v3
         with:
-          name: sfml-project-linux
+          name: Space-Invaders-linux
           path: ./build
 
       - name: Upload Windows Asset
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/sfml-project-windows.zip
-          asset_name: sfml-project-windows.zip
+          asset_path: ./build/Space-Invaders-windows.zip
+          asset_name: Space-Invaders-windows.zip
           asset_content_type: application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -126,8 +126,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/sfml-project-macos.zip
-          asset_name: sfml-project-macos.zip
+          asset_path: ./build/Space-Invaders-macos.zip
+          asset_name: Space-Invaders-macos.zip
           asset_content_type: application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -136,8 +136,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./build/sfml-project-linux.zip
-          asset_name: sfml-project-linux.zip
+          asset_path: ./build/Space-Invaders-linux.zip
+          asset_name: Space-Invaders-linux.zip
           asset_content_type: application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
