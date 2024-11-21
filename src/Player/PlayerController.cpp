@@ -70,7 +70,7 @@ namespace Player
 		}
 
 		if (event_service->pressedLeftMouseButton())
-			fireBullet();
+			processBulletFire();
 	}
 
 	void PlayerController::moveLeft()
