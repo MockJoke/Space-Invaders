@@ -6,6 +6,7 @@
 #include "../../include/Bullet/Controllers/LaserBulletController.h"
 #include "../../include/Bullet/Controllers/TorpedoController.h"
 #include "../../include/Global/ServiceLocator.h"
+// #include <iostream>
 
 namespace Bullet
 {
@@ -79,7 +80,16 @@ namespace Bullet
             if (!isValidBullet(i, flagged_bullet_list))
                 continue;
 
+            // std::cerr << "Inspecting flagged bullet at index " << i << ": " << flagged_bullet_list[i] << '\n';
+            // auto collider = dynamic_cast<Collision::ICollider*>(flagged_bullet_list[i]);
+
+            // if (collider != nullptr)
+            // {
+            //     Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(collider);
+            // }
+
             Global::ServiceLocator::getInstance()->getCollisionService()->removeCollider(dynamic_cast<Collision::ICollider*>(flagged_bullet_list[i]));
+
             delete (flagged_bullet_list[i]);
             flagged_bullet_list[i] = nullptr;
         }
@@ -89,8 +99,15 @@ namespace Bullet
 
     void BulletService::destroyBullet(BulletController* bullet_controller)
     {
+        if (std::find(flagged_bullet_list.begin(), flagged_bullet_list.end(), bullet_controller) != flagged_bullet_list.end())
+        {
+            // std::cerr << "Bullet already flagged for destruction: " << bullet_controller << '\n';
+            return; // Skip adding if it's already there
+        }
+
         bullet_controller->disableCollision();
         flagged_bullet_list.push_back(bullet_controller);
+        // std::cerr << "Added bullet at index " << flagged_bullet_list.size() -1 << ": " << flagged_bullet_list[flagged_bullet_list.size() -1] << '\n';
         bullet_list.erase(std::remove(bullet_list.begin(), bullet_list.end(), bullet_controller), bullet_list.end());
     }
 
