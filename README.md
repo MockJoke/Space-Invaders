@@ -31,7 +31,7 @@ A space invaders game made using C++ & SFML
 - [ ] Game Over & Pause state
 - [ ] More particle effects, sound effects, animations
 - [ ] Fix enemy overlapping
-- [ ] Fix certain issues with special abilities
+- [x] Fix certain issues with special abilities
 
 ## Credits & Attributions
 
